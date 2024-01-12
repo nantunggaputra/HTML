@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Classes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>JavaScript Classes Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#Class_Intro">Class Intro</a></li>
+            <li><a class="nav-link" href="#JavaScript_Class_Syntax">JavaScript Class Syntax</a></li>
+            <li><a class="nav-link" href="#Using_a_Class">Using a Class</a></li>
+            <li><a class="nav-link" href="#The_Constructor_Method">The Constructor Method</a></li>
+            <li><a class="nav-link" href="#Class_Methods">Class Methods</a></li>
+            <li><a class="nav-link" href="#use_strict">use strict</a></li>
+            <li><a class="nav-link" href="#Class_Inheritance">Class Inheritance</a></li>
+            <li><a class="nav-link" href="#Getters_and_Setters">Getters and Setters</a></li>
+            <li><a class="nav-link" href="#Hoisting">Hoisting</a></li>
+            <li><a class="nav-link" href="#JavaScript_Static_Methods">JavaScript Static Methods</a></li>
+            <li><a class="nav-link" href="#References">References</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section id="Class_Intro" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="JavaScript_Class_Syntax" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="Using_a_Class" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="The_Constructor_Method" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="Class_Methods" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="use_strict" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="Class_Inheritance" class="main-section">
+            <header></header>
+            <article></article>
+        </section>
+        <section id="Getters_and_Setters" class="main-section">
+            <header>Getters and Setters</header>
+            <article>
+                Classes also allows you to use getters and setters.<br>
+                It can be smart to use getters and setters for your properties, especially if you want to do something special with the value before returning them, or before you set them.<br>
+                To add getters and setters in the class, use the <span>get</span> and <span>set</span> keywords.<br>
+                <p>Example</p>
+                <p>Create a getter and a setter for the "carname" property:</p>
+                <code><textarea name="example" cols="55" rows="16">
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  get cnam() {
+    return this.carname;
+  }
+  set cnam(x) {
+    this.carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+
+document.getElementById("demo").innerHTML = myCar.cnam;
+                </textarea></code><br>
+                <p>The name of the getter/setter method cannot be the same as the name of the property, in this case <span>carname</span>.</p>
+                <p>Many programmers use an underscore character <span>_</span> before the property name to separate the getter/setter from the actual property:</p>
+                <p>Example</p>
+                <p>You can use the underscore character to separate the getter/setter from the actual property:</p>
+                <code><textarea name="example" cols="58" rows="16">
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+
+document.getElementById("demo").innerHTML = myCar.carname;
+                </textarea></code><br>
+                <p>To use a setter, use the same syntax as when you set a property value, without parentheses:</p>
+                <p>Example</p>
+                <p>Use a setter to change the carname to "Volvo":</p>
+                <code><textarea name="example" cols="58" rows="16">
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+myCar.carname = "Volvo";
+document.getElementById("demo").innerHTML = myCar.carname;
+                </textarea></code><br>
+            </article>
+        </section>
+        <section id="Hoisting" class="main-section">
+            <header>Hoisting</header>
+            <article>
+                Unlike functions, and other JavaScript declarations, class declarations are not hoisted.<br>
+                That means that you must declare a class before you can use it:<br>
+                <p>Example</p>
+                <code><textarea name="example" cols="46" rows="12">
+//You cannot use the class yet.
+//myCar = new Car("Ford") will raise an error.
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+
+//Now you can use the class:
+const myCar = new Car("Ford")
+                </textarea></code><br>
+            </article>
+        </section>
+        <section id="JavaScript_Static_Methods" class="main-section">
+            <header>JavaScript Static Methods</header>
+            <article>
+                Static class methods are defined on the class itself.<br>
+                You cannot call a <span>static</span> method on an object, only on an object class.<br>
+                <p>Example</p>
+                <code><textarea name="example" cols="61" rows="18">
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+}
+
+const myCar = new Car("Ford");
+
+// You can call 'hello()' on the Car Class:
+document.getElementById("demo").innerHTML = Car.hello();
+
+// But NOT on a Car Object:
+// document.getElementById("demo").innerHTML = myCar.hello();
+// this will raise an error.
+                </textarea></code><br>
+                <p>If you want to use the myCar object inside the <span>static</span> method, you can send it as a parameter:</p>
+                <p>Example</p>
+                <code><textarea name="example" cols="61" rows="11">
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello(x) {
+    return "Hello " + x.name;
+  }
+}
+const myCar = new Car("Ford");
+document.getElementById("demo").innerHTML = Car.hello(myCar);
+                </textarea></code><br>
+            </article>
+        </section>
+        <section id="References" class="main-section">
+            <header>References</header>
+            <article>
+                <ul>
+                    <li>
+                        All the documentation in this page is taken from
+                        <a href="https://www.w3schools.com/js/js_class_intro.asp" target="_blank">W3Schools</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
