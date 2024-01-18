@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0.5px solid black;
+  border: 0.5px solid aqua;
   box-sizing: border-box;
   text-decoration: none;
   color: black;
@@ -47,6 +47,60 @@ body {
   margin-left: 25px;
 }
 
+main h2 {
+  margin-top: 110px;
+  text-align: center;
+}
+
+#form {
+  margin: 20px;
+  text-align: center;
+}
+
+input[type="email"] {
+  width: 200px;
+}
+
+input[type="submit"] {
+  font-weight: 700;
+  width: 110px;
+  background-color: rgb(255, 177, 10);
+  cursor: pointer;
+}
+
 #footer {
   height: 2500px;
+}
+
+@media (max-width: 758px) {
+  body {
+    font-size: 0.7em;
+  }
+
+  #header {
+    padding: 10px;
+  }
+
+  #header-logo {
+    margin-left: 5px;
+    gap: 10px;
+  }
+
+  #header-img {
+    height: 25px;
+  }
+
+  #header-h1 {
+    letter-spacing: 3px;
+  }
+
+  #header #nav-bar a {
+    margin: 5px;
+    display: block;
+    text-align: right;
+  }
+
+  input {
+    font-size: 0.9em;
+  }
 }
