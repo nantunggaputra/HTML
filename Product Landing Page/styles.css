@@ -68,6 +68,54 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+#Features,
+#How_It_Works {
+  margin: 10px auto;
+  width: 720px;
+}
+
+#Features article {
+  margin: 10px 0;
+  text-align: center;
+}
+
+#Features .feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#Features .feature-icon {
+  width: 50px;
+  fill: rgb(255, 177, 10);
+}
+
+#Features .feature-description {
+  margin: 10px 0;
+}
+
+#Features .feature-description p {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+#How_It_Works article {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#How_It_Works .video {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#How_It_Works #Video {
+  width: 720px;
+  height: 400px;
+}
+
 #footer {
   height: 2500px;
 }
@@ -102,5 +150,45 @@ input[type="submit"] {
 
   input {
     font-size: 0.9em;
+  }
+
+  input[type="email"] {
+    width: 130px;
+  }
+
+  input[type="submit"] {
+    width: 80px;
+  }
+
+  #Features,
+  #How_It_Works {
+    margin: 5px auto;
+    width: 95%;
+  }
+
+  #Features article {
+    margin: 7px 0;
+  }
+
+  #Features .feature {
+    gap: 10px;
+  }
+
+  #Features .feature-icon {
+    width: 20px;
+  }
+
+  #Features .feature-description {
+    margin: 3px 0;
+  }
+
+  #How_It_Works article {
+    margin: 20px auto 10px auto;
+  }
+
+  #How_It_Works #Video {
+    width: 100%;
+    max-width: 380px;
+    height: 200px;
   }
 }
