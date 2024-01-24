@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0.5px solid aqua;
+  border: 0.5px solid transparent;
   box-sizing: border-box;
   text-decoration: none;
   color: black;
@@ -47,8 +47,8 @@ body {
   margin-left: 25px;
 }
 
-main h2 {
-  margin-top: 110px;
+main > h2 {
+  margin-top: 150px;
   text-align: center;
 }
 
@@ -69,12 +69,16 @@ input[type="submit"] {
 }
 
 #Features,
-#How_It_Works {
+#How_It_Works,
+#Pricing {
   margin: 10px auto;
+  padding-top: 100px;
   width: 720px;
 }
 
-#Features article {
+#Features article,
+#How_It_Works article,
+#Pricing article {
   margin: 10px 0;
   text-align: center;
 }
@@ -100,13 +104,9 @@ input[type="submit"] {
   font-weight: 700;
 }
 
-#How_It_Works article {
-  margin: 20px 0;
-  text-align: center;
-}
-
 #How_It_Works .video {
   margin: auto;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -116,8 +116,52 @@ input[type="submit"] {
   height: 400px;
 }
 
+#Pricing .prices {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#Pricing .price {
+  margin-top: 20px;
+  margin-bottom: 70px;
+  padding: 15px;
+  width: 29%;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+}
+
+#Pricing .price h4 {
+  margin: 25px 0;
+}
+
+#Pricing .price h2 {
+  margin-bottom: 15px;
+}
+
+#Pricing .price h2 span {
+  font-size: 0.5em;
+  text-decoration: line-through;
+}
+
+#Pricing .price p:last-of-type {
+  padding-bottom: 30px;
+}
+
 #footer {
-  height: 2500px;
+  height: 60px;
+  background-color: rgb(140, 140, 140);
+  font-size: 0.9em;
+}
+
+#footer p {
+  margin-top: 5px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+#footer a {
+  margin-left: 20px;
+  text-decoration: underline;
 }
 
 @media (max-width: 758px) {
@@ -161,7 +205,8 @@ input[type="submit"] {
   }
 
   #Features,
-  #How_It_Works {
+  #How_It_Works,
+  #Pricing {
     margin: 5px auto;
     width: 95%;
   }
@@ -190,5 +235,38 @@ input[type="submit"] {
     width: 100%;
     max-width: 380px;
     height: 200px;
+  }
+
+  #Pricing .prices {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #Pricing .price {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 70%;
+  }
+
+  #Pricing .price h4 {
+    margin: 0 0 5px 0;
+  }
+
+  #Pricing .price h2 {
+    margin-bottom: 10px;
+  }
+
+  #Pricing .price p:last-of-type {
+    padding-bottom: 20px;
+  }
+
+  #footer {
+    margin-top: 50px;
+    height: 50px;
+  }
+
+  #footer a {
+    margin-left: 5px;
   }
 }
