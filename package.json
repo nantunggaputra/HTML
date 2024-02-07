@@ -1,0 +1,23 @@
+{
+  "name": "HTML",
+  "version": "1.0.0",
+  "description": "Responsive Web Design freeCodeCamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nantunggaputra/HTML.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nantunggaputra/HTML/issues"
+  },
+  "homepage": "https://github.com/nantunggaputra/HTML#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
