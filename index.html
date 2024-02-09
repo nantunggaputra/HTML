@@ -5,15 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./dist/output.css" rel="stylesheet">
+    <!-- Feather_Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
     <title>Homepage Portfolio</title>
 </head>
-<header>
-    <style>
-        * {
-            scroll-behavior: smooth;
-        }
-    </style>
+
+<!-- Header_Start -->
+<header class="fixed top-0 left-0 w-full flex items-center z-30 transition duration-800 ease">
+    <div class="container">
+        <div class="flex items-center justify-between relative">
+            <div class="px-4">
+                <a href="#home" class="font-bold text-lg text-primary block py-6">nantunggaputra</a>
+            </div>
+            <div class="flex items-center px-4">
+                <button id="hamburger" name="hamburger" type="button" class="block absolute right-4">
+                    <span class="hamburger-line transition duration-300 ease origin-top-left"></span>
+                    <span class="hamburger-line transition duration-300 ease"></span>
+                    <span class="hamburger-line transition duration-300 ease origin-bottom-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
 </header>
+<!-- Header_End -->
 
 <body class="bg-white">
     <!-- Hero_Section_Start -->
@@ -24,12 +38,12 @@
                     <h1 class="text-base font-semibold text-primary md:text-xl"><span class="text-lg lg:text-xl">🗣 </span>Hello there, I am<span class="block font-bold text-dark text-4xl mt-2 pb-2 lg:pb-3 lg:text-5xl">Nantungga Putra</span></h1>
                     <h2 class="font-medium text-neutral-500 text-lg mb-5 lg:text-2xl max-w-lg">an enthusiastic newcomer to the world of <span class="text-dark">programming</span> and <span class="text-dark">web development</span></h2>
                     <p class="font-medium text-neutral-400 mb-10 pt-1 leading-relaxed max-w-md">If you want to communicate further or establish a connection, connect with me on LinkedIn. Thank you for exploring my website. I hope the provided information offers valuable insights.</p>
-                    <a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="text-base font-semibold text-white bg-primary py-2 px-6 rounded-full hover:shadow-lg hover:bg-third transition duration-300 ease">Message</a>
+                    <a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="text-base font-semibold font-sans text-white bg-primary py-2 px-5 rounded-full hover:shadow-lg hover:bg-third transition duration-300 ease"><i data-feather="send" class="inline-flex mr-2 -ml-1 pt-px pb-1"></i>Message</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10">
                         <img src="./dist/img/nantunggaputra-background.png" alt="Nantungga Putra" width="265" class="max-w-full mx-auto blur-sm hover:blur-0 hover:cursor-none transition duration-300 ease">
-                        <p class="absolute -mt-10 z-20 left-1/2 -translate-x-1/2 text-4xl text-primary tracking-tighter font-bold cursor-pointer"><a href="#home">webdeveloper</a></p>
+                        <p class="absolute -mt-10 z-20 left-1/2 -translate-x-1/2 text-4xl text-primary tracking-tighter font-bold font-sans cursor-pointer"><a href="#home">webdeveloper</a></p>
                         <span class="absolute -bottom-44 -z-10 left-1/2 -translate-x-1/2">
                             <svg width="385" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#036CA8" d="M61.8,-57.5C78.5,-45.2,89.2,-22.6,85.8,-3.4C82.5,15.9,65.1,31.8,48.4,43.4C31.8,55.1,15.9,62.5,-3.2,65.7C-22.3,68.9,-44.5,67.8,-59.5,56.2C-74.4,44.5,-82.1,22.3,-78.4,3.7C-74.6,-14.8,-59.6,-29.7,-44.6,-42.1C-29.7,-54.4,-14.8,-64.4,3.9,-68.2C22.6,-72.1,45.2,-69.9,61.8,-57.5Z" transform="translate(100 100)" />
@@ -104,8 +118,15 @@
     </section>
     <!-- About_Section_End -->
 
+    <!-- Feather_Icons -->
+    <script>
+        feather.replace();
+    </script>
+
+    <script src="./dist/js/script.js"></script>
+
     <!-- !WARNING under_maintenance-->
-    <script>document.location.href = "./Personal Portfolio Webpage/index.html"</script>
+    <!-- <script>document.location.href = "./Personal Portfolio Webpage/index.html"</script> -->
     <!-- !WARNING under_maintenance-->
 </body>
 
