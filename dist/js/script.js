@@ -12,6 +12,8 @@ window.onscroll = function () {
 
 // toggle_class_active_hamburger
 const hamburger = document.querySelector('#hamburger');
+const navMenu = document.querySelector('#nav-menu');
 hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('hamburger-active');
+    navMenu.classList.toggle('hidden');
 });
