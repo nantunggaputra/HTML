@@ -37,3 +37,161 @@ body {
 .hamburger-active > span:nth-child(3) {
   transform: rotate(-45deg);
 }
+
+#loading {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3, 108, 168);
+  animation: load 3s normal forwards;
+}
+
+#loading #canvas {
+  position: absolute;
+}
+
+#loading .container {
+  display: flex;
+  width: 80%;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#loading .container div {
+  border-radius: 10px;
+}
+
+.one {
+  height: 35%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.two {
+  height: 45%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.three {
+  height: 67%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.four {
+  height: 45%;
+  width: 7px;
+  border-radius: 20px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.five {
+  height: 65%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.six {
+  height: 95%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.seven {
+  height: 65%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+.eight {
+  height: 45%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.nine {
+  height: 35%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.ten {
+  height: 20%;
+  width: 7px;
+  animation: shrink 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine,
+.ten {
+  background-color: rgb(255, 255, 255);
+}
+
+@keyframes load {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  20% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  80% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
