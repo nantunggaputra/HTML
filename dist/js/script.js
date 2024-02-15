@@ -17,3 +17,16 @@ hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('hamburger-active');
     navMenu.classList.toggle('hidden');
 });
+
+// input_name
+const inputElement = document.getElementById("name");
+inputElement.addEventListener("input", function () {
+  let inputValue = inputElement.value;
+  let cleanValue = inputValue.replace(/[^a-zA-Z]/g, "");
+  inputElement.value = cleanValue;
+});
+
+// input_number
+document.getElementById("phone").addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9]/g, "");
+});
