@@ -30,3 +30,17 @@ inputElement.addEventListener("input", function () {
 document.getElementById("phone").addEventListener("input", function () {
   this.value = this.value.replace(/[^0-9]/g, "");
 });
+
+// tobottom
+window.addEventListener('scroll', function() {
+  const goToBottom = document.getElementById('tobottom');
+  const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+  const totalHeight = document.body.scrollHeight;
+  const windowHeight = window.innerHeight;
+
+  if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
+      goToBottom.style.display = 'none';
+  } else {
+      goToBottom.style.display = 'block';
+  }
+});
