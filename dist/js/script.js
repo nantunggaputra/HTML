@@ -18,6 +18,25 @@ hamburger.addEventListener('click', function () {
     navMenu.classList.toggle('hidden');
 });
 
+// remove_class_active_hamburger
+window.addEventListener('click', function (e) {
+  if (e.target != hamburger && e.target != navMenu) {
+    hamburger.classList.remove('hamburger-active');
+    navMenu.classList.add('hidden');
+  }
+});
+
+// darktoggle
+const darkModeToggle = document.querySelector('#darktoggle');
+const html = document.querySelector('html');
+darkModeToggle.addEventListener('click', function () {
+  if (darkModeToggle.checked) {
+    html.classList.add('dark');
+  } else {
+    html.classList.remove('dark');
+  }
+});
+
 // input_name
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {

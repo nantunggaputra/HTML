@@ -38,6 +38,10 @@ body {
 	transform: rotate(-45deg);
 }
 
+#darktoggle:checked ~ label div.toggle-circle {
+	transform: translateX(12px);
+}
+
 #loading {
 	margin: 0;
 	padding: 0;
