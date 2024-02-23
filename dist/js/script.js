@@ -32,10 +32,19 @@ const html = document.querySelector('html');
 darkModeToggle.addEventListener('click', function () {
   if (darkModeToggle.checked) {
     html.classList.add('dark');
+    localStorage.theme = 'dark'
   } else {
     html.classList.remove('dark');
+    localStorage.theme = 'light'
   }
 });
+
+// darktoggle_localstorage
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  darkModeToggle.checked = true;
+} else {
+  darkModeToggle.checked = false;
+}
 
 // input_name
 const inputElement = document.getElementById("name");

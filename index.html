@@ -11,6 +11,15 @@
 		<!-- Favicon -->
 		<link rel="icon" href="./dist/img/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="./dist/img/favicon.ico" type="image/x-icon" />
+
+		<!-- Dark Mode -->
+		<script>
+			if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+		</script>
 		<title>Homepage Portfolio</title>
 	</head>
 
@@ -19,7 +28,7 @@
 		<div class="container">
 			<div class="relative flex items-center justify-between">
 				<div class="px-4">
-					<a href="#home" class="block py-6 text-lg font-bold text-primary">nantunggaputra</a>
+					<a href="#home" class="block py-6 text-lg font-bold text-primary dark:text-secondary">nantunggaputra</a>
 				</div>
 				<div class="flex items-center px-4">
 					<button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden">
@@ -29,35 +38,35 @@
 					</button>
 					<nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[240px] bg-transparent py-1 lg:static lg:block lg:max-w-full">
 						<ul class="block lg:flex">
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#home" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">Homepage</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#home" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">Homepage</a>
 							</li>
 							<li></li>
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#about" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">About Me</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#about" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">About Me</a>
 							</li>
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#portfolio" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">Portfolio</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#portfolio" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">Portfolio</a>
 							</li>
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#clients" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">Clients</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#clients" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">Clients</a>
 							</li>
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#blog" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">Blog</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#blog" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">Blog</a>
 							</li>
-							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none">
-								<a href="#contact" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6">Contact</a>
+							<li class="group rounded-lg bg-white shadow-lg lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<a href="#contact" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary lg:mx-6 dark:text-white dark:group-hover:text-secondary">Contact</a>
 							</li>
-							<li class="flex items-center pt-[6px] md:pl-0 xl:pl-6">
-								<div class="flex">
-									<span class="mr-1 text-sm"><i data-feather="sun" class="pb-1"></i></span>
+							<li class="flex items-center rounded-lg bg-white pt-1 shadow-lg md:pl-0 lg:rounded-none lg:bg-transparent lg:shadow-none xl:pl-6 dark:bg-dark dark:shadow-md dark:shadow-neutral-700 dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+								<div class="mx-7 my-2 flex md:mx-0 md:my-0">
+									<span class="mr-1 text-sm dark:text-white"><i data-feather="sun" class="pb-1"></i></span>
 									<input type="checkbox" id="darktoggle" class="hidden" />
 									<label for="darktoggle">
-										<div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-dark p-1">
-											<div class="toggle-circle ease h-4 w-4 rounded-full bg-white transition duration-300"></div>
+										<div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-dark p-1 dark:bg-white">
+											<div class="toggle-circle ease h-4 w-4 rounded-full bg-white transition duration-300 dark:bg-dark"></div>
 										</div>
 									</label>
-									<span class="ml-1 text-sm"><i data-feather="moon" class="pb-1"></i></span>
+									<span class="ml-1 text-sm dark:text-white"><i data-feather="moon" class="pb-1"></i></span>
 								</div>
 							</li>
 						</ul>
@@ -86,26 +95,27 @@
 		</section>
 
 		<!-- Hero_Section_Start -->
-		<section id="home" class="pt-36">
+		<section id="home" class="pt-36 dark:bg-dark">
 			<div class="container">
 				<div class="flex flex-wrap">
 					<div class="w-full self-center px-4 lg:w-1/2">
-						<h1 class="text-base font-semibold text-primary md:text-xl"><span class="text-lg lg:text-xl">🗣 </span>Hello there, I am<span class="mt-2 block pb-2 text-4xl font-bold text-dark lg:pb-3 lg:text-5xl">Nantungga Putra</span></h1>
-						<h2 class="mb-5 max-w-lg text-lg font-medium text-neutral-500 lg:text-2xl">
+						<h1 class="text-base font-semibold text-primary md:text-xl dark:text-secondary"><span class="text-lg lg:text-xl">🗣 </span>Hello there, I am<span class="mt-2 block pb-2 text-4xl font-bold text-dark lg:pb-3 lg:text-5xl dark:text-white">Nantungga Putra</span></h1>
+						<h2 class="mb-5 max-w-lg text-lg font-medium text-neutral-500 lg:text-2xl dark:text-neutral-400">
 							an enthusiastic newcomer to the world of
-							<span class="text-dark">programming</span> and
-							<span class="text-dark">web development</span>
+							<span class="text-dark dark:text-white">programming</span> and
+							<span class="text-dark dark:text-white">web development</span>
 						</h2>
-						<p class="mb-10 max-w-md pt-1 font-medium leading-relaxed text-neutral-400">If you want to communicate further or establish a connection, connect with me on LinkedIn. Thank you for exploring my website. I hope the provided information offers valuable insights.</p>
-						<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease rounded-full bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:bg-third hover:shadow-lg"><i data-feather="send" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Message</a>
+						<p class="mb-10 max-w-md pt-1 font-medium leading-relaxed text-neutral-400 dark:text-neutral-500">If you want to communicate further or establish a connection, connect with me on LinkedIn. Thank you for exploring my website. I hope the provided information offers valuable insights.</p>
+						<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease rounded-full bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:bg-third hover:shadow-lg dark:bg-secondary dark:hover:bg-third"><i data-feather="send" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Message</a>
 					</div>
 					<div class="w-full self-end px-4 lg:w-1/2">
 						<div class="relative mt-10">
-							<img src="./dist/img/nantunggaputra-background.png" alt="Nantungga Putra" width="265" class="ease mx-auto max-w-full blur-sm transition duration-300 hover:cursor-none hover:blur-0" />
-							<p class="absolute left-1/2 z-20 -mt-10 -translate-x-1/2 cursor-pointer font-sans text-4xl font-bold tracking-tighter text-primary">
+							<img src="./dist/img/nantunggaputra-background.png" alt="Nantungga Putra" width="265" class="ease mx-auto max-w-full blur-sm transition duration-300 hover:cursor-none hover:blur-0 dark:hidden" />
+							<img src="./dist/img/subaruokiya-background.png" alt="Subaru Okiya" width="295" class="ease mx-auto hidden max-w-full blur-sm transition duration-300 hover:cursor-none hover:blur-0 dark:block" />
+							<p class="absolute left-1/2 z-20 -mt-10 -translate-x-1/2 cursor-pointer font-sans text-4xl font-bold tracking-tighter text-primary dark:text-dark">
 								<a href="#home">webdeveloper</a>
 							</p>
-							<span class="absolute -bottom-44 left-1/2 -z-10 -translate-x-1/2">
+							<span class="absolute -bottom-44 left-1/2 -z-10 -translate-x-1/2 dark:hidden">
 								<svg width="385" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#036CA8" d="M61.8,-57.5C78.5,-45.2,89.2,-22.6,85.8,-3.4C82.5,15.9,65.1,31.8,48.4,43.4C31.8,55.1,15.9,62.5,-3.2,65.7C-22.3,68.9,-44.5,67.8,-59.5,56.2C-74.4,44.5,-82.1,22.3,-78.4,3.7C-74.6,-14.8,-59.6,-29.7,-44.6,-42.1C-29.7,-54.4,-14.8,-64.4,3.9,-68.2C22.6,-72.1,45.2,-69.9,61.8,-57.5Z" transform="translate(100 100)" />
 								</svg>
@@ -118,35 +128,35 @@
 		<!-- Hero_Section_End -->
 
 		<!-- About_Section_Start -->
-		<section id="about" class="pb-32 pt-36">
+		<section id="about" class="pb-32 pt-36 dark:bg-dark">
 			<div class="container">
 				<div class="flex flex-wrap">
 					<div class="mb-10 mt-14 w-full px-4 lg:w-1/2">
-						<h4 class="mb-3 text-base font-bold uppercase text-primary lg:text-2xl">About Me</h4>
-						<h2 class="mb-5 max-w-lg text-2xl font-bold text-dark lg:text-4xl">Inspired to continually learn and enhance technical skills</h2>
-						<p class="max-w-md text-base font-medium text-neutral-500">With more practice, I'll have a solid foundation for understanding logic and project planning.</p>
+						<h4 class="mb-3 text-base font-bold uppercase text-primary lg:text-2xl dark:text-secondary">About Me</h4>
+						<h2 class="mb-5 max-w-lg text-2xl font-bold text-dark lg:text-4xl dark:text-white">Inspired to continually learn and enhance technical skills</h2>
+						<p class="max-w-md text-base font-medium text-neutral-500 dark:text-neutral-400">With more practice, I'll have a solid foundation for understanding logic and project planning.</p>
 					</div>
 					<div class="w-full px-4 lg:w-1/2">
-						<h3 class="mb-4 text-xl font-semibold text-dark lg:mt-24 lg:pt-2 lg:text-3xl">Let's Connect</h3>
-						<p class="mb-6 max-w-md text-base font-medium text-neutral-500">Let's work together on innovative technology solutions!</p>
+						<h3 class="mb-4 text-xl font-semibold text-dark lg:mt-24 lg:pt-2 lg:text-3xl dark:text-white">Let's Connect</h3>
+						<p class="mb-6 max-w-md text-base font-medium text-neutral-500 dark:text-neutral-400">Let's work together on innovative technology solutions!</p>
 						<div class="flex items-center pt-1">
 							<!-- LinkedIn -->
-							<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-55 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-55 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>LinkedIn</title>
 									<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
 								</svg>
 							</a>
 							<!-- YouTube -->
-							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>YouTube</title>
 									<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
 								</svg>
 							</a>
 							<!-- Instagram -->
-							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>Instagram</title>
 									<path
 										d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
@@ -154,22 +164,22 @@
 								</svg>
 							</a>
 							<!-- Facebook -->
-							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>Facebook</title>
 									<path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
 								</svg>
 							</a>
 							<!-- Twitter -->
-							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>Twitter</title>
 									<path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
 								</svg>
 							</a>
 							<!-- TikTok -->
-							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
-								<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<a href="#about" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-dark border-opacity-50 transition duration-300 hover:border-primary hover:bg-primary hover:text-white dark:border-neutral-400 dark:hover:border-secondary dark:hover:bg-secondary dark:hover:text-white">
+								<svg role="img" width="20" class="fill-current dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<title>TikTok</title>
 									<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
 								</svg>
@@ -182,78 +192,78 @@
 		<!-- About_Section_End -->
 
 		<!-- Portfolio_Section_Start -->
-		<section id="portfolio" class="bg-gradient-to-b from-neutral-100 to-neutral-200 pb-16 pt-36">
+		<section id="portfolio" class="bg-gradient-to-b from-neutral-100 to-neutral-200 pb-16 pt-36 dark:from-neutral-900 dark:to-neutral-700">
 			<div class="container">
 				<div class="w-full px-4">
 					<div class="mx-auto mb-16 max-w-xl text-center">
-						<h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
-						<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl">Recent Projects</h2>
-						<p class="text-base font-medium text-neutral-500 md:text-lg">This section features my latest projects around the front-end web development from several online courses including programming tech influencers.</p>
+						<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Portfolio</h4>
+						<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl dark:text-white">Recent Projects</h2>
+						<p class="text-base font-medium text-neutral-500 md:text-lg dark:text-neutral-400">This section features my latest projects around the front-end web development from several online courses including programming tech influencers.</p>
 					</div>
 				</div>
 				<div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-11/12">
 					<div id="ecommerce" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/Kedai Teh Solo Gen-Z.png" loading="lazy" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
+							<img src="./dist/img/portfolio/Kedai Teh Solo Gen-Z.png" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/kedaitehsologenz/" class="block w-full">Kedai Teh Solo Gen-Z</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML & CSS dari 0 + Autodeploy ke WEB HOSTING" - "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML, CSS & JavaScript"</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML & CSS dari 0 + Autodeploy ke WEB HOSTING" - "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML, CSS & JavaScript"</p>
 					</div>
 					<div class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/Adlan Muslim.png" loading="lazy" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
+							<img src="./dist/img/portfolio/Adlan Muslim.png" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/merchadlanmuslim/" class="block w-full">Adlan Muslim</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE RESPONSIVE menggunakan CSS GRID"</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE RESPONSIVE menggunakan CSS GRID"</p>
 					</div>
 					<div id="personalportfolio" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/Personal Portfolio.png" loading="lazy" alt="Personal Portfolio Webpage" title="Personal Portfolio Webpage" width="w-full" />
+							<img src="./dist/img/portfolio/Personal Portfolio.png" alt="Personal Portfolio Webpage" title="Personal Portfolio Webpage" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/HTML/Personal%20Portfolio%20Webpage/" class="block w-full">Personal Portfolio</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
 					<div id="surveyform" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/freeCodeCamp Survey Form.png" loading="lazy" alt="Survey Form" title="Survey Form" width="w-full" />
+							<img src="./dist/img/portfolio/freeCodeCamp Survey Form.png" alt="Survey Form" title="Survey Form" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/HTML/Survey%20Form/" class="block w-full">freeCodeCamp Survey Form</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
 					<div id="tributepage" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/Biografi Ir. Soekarno.png" loading="lazy" alt="Tribute Page" title="Tribute Page" width="w-full" />
+							<img src="./dist/img/portfolio/Biografi Ir. Soekarno.png" alt="Tribute Page" title="Tribute Page" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/HTML/Tribute%20Page/" class="block w-full">Biografi Ir. Soekarno</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
 					<div id="documentationpage" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/JavaScript Classes.png" loading="lazy" alt="Technical Documentation Page" title="Technical Documentation Page" width="w-full" />
+							<img src="./dist/img/portfolio/JavaScript Classes.png" alt="Technical Documentation Page" title="Technical Documentation Page" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/HTML/Documentation%20Page/" class="block w-full">JavaScript Classes</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
 					<div id="landingpage" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
-							<img src="./dist/img/portfolio/Original Flutes.png" loading="lazy" alt="Product Landing Page" title="Product Landing Page" width="w-full" />
+							<img src="./dist/img/portfolio/Original Flutes.png" alt="Product Landing Page" title="Product Landing Page" width="w-full" />
 						</div>
-						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary">
+						<h3 class="ease mb-3 mt-5 text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">
 							<a href="https://nantunggaputra.github.io/HTML/Product%20Landing%20Page/" class="block w-full">Original Flutes</a>
 						</h3>
-						<p class="text-sm font-medium text-neutral-500">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
+						<p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
 				</div>
 			</div>
@@ -273,22 +283,22 @@
 				<div class="w-full px-4">
 					<div class="mx-auto flex max-w-4xl flex-wrap items-center justify-center">
 						<a href="https://www.gojek.io/careers" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/Gojek_logo.png" loading="lazy" alt="Gojek" />
+							<img src="./dist/img/clients/Gojek_logo.png" alt="Gojek" />
 						</a>
 						<a href="https://www.tokopedia.com/careers" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/Tokopedia_logo.png" loading="lazy" alt="Tokopedia" />
+							<img src="./dist/img/clients/Tokopedia_logo.png" alt="Tokopedia" />
 						</a>
 						<a href="https://wingscareer.com/index.php/en/" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/Wings_logo.png" loading="lazy" alt="Wings" />
+							<img src="./dist/img/clients/Wings_logo.png" alt="Wings" />
 						</a>
 						<a href="https://kapalapi.com/professional-leader/" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/Kapal_Api_logo.png" loading="lazy" alt="Kapal Api" />
+							<img src="./dist/img/clients/Kapal_Api_logo.png" alt="Kapal Api" />
 						</a>
 						<a href="https://www.wardahbeauty.com/id" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/Wardah_logo.png" loading="lazy" alt="Wardah" />
+							<img src="./dist/img/clients/Wardah_logo.png" alt="Wardah" />
 						</a>
 						<a href="https://www.eminacosmetics.com/id" target="_blank" class="ease mx-5 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-10">
-							<img src="./dist/img/clients/EMINA_COSMETICS_logo.png" loading="lazy" alt="EMINA COSMETICS" />
+							<img src="./dist/img/clients/EMINA_COSMETICS_logo.png" alt="EMINA COSMETICS" />
 						</a>
 					</div>
 				</div>
@@ -297,71 +307,71 @@
 		<!-- Clients_Section_End -->
 
 		<!-- Blog_Section_Start -->
-		<section id="blog" class="bg-neutral-100 pb-32 pt-36">
+		<section id="blog" class="bg-neutral-100 pb-32 pt-36 dark:bg-neutral-700">
 			<div class="w-full px-4">
 				<div class="mx-auto mb-16 max-w-xl text-center">
-					<h4 class="mb-2 text-lg font-semibold text-primary">Blog</h4>
-					<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl">Last Scribbles</h2>
-					<p class="text-base font-medium text-neutral-500 md:text-lg">This line contains someone writing/scribbles on my blog about Ending Detective Conan fanfiction.</p>
+					<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Blog</h4>
+					<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl dark:text-white">Last Scribbles</h2>
+					<p class="text-base font-medium text-neutral-500 md:text-lg dark:text-neutral-400">This line contains someone's writing/scribbles on my blog about Ending Detective Conan fanfiction.</p>
 				</div>
 				<div class="flex flex-wrap justify-center">
 					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
-						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md">
-							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_1.jpg" loading="lazy" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md dark:bg-dark">
+							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_1.jpg" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
 							<div class="px-6 py-8">
 								<h3>
-									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary">Sisa Masa Lalu</a>
+									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">Sisa Masa Lalu</a>
 								</h3>
-								<p class="mb-2 text-justify font-serif">Matahari bersinar terik siang itu, di SMU Teitan. Hari itu adalah hari terakhir mereka sebelum liburan musim panas tiba. Meskipun begitu, para guru tetap bertekad memberikan pelajaran sampai bel berbunyi, mengabaikan keluh kesah para murid. Ai Haibara memandang keluar melewati jendela kelasnya, pikirannya menerawang ke tempat lain, atau lebih tepatnya, ke waktu tertentu.</p>
-								<p class="mb-2 text-justify font-serif italic">Sudah sepuluh tahun berlalu… semenjak hari itu, ya?</p>
-								<p class="mb-2 text-justify font-serif underline">Flashback</p>
-								<p class="mb-6 text-justify font-serif"><span class="italic">“Conan!!!”</span> teriak Ayumi di sampingnya, histeris. Ia memeluk erat-erat gadis kecil itu, demikian juga dengan Genta dan Mitsuhiko. Toh, hanya merekalah yang tersisa dari Grup Detektif Cilik.</p>
-								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md">Read more...</a>
+								<p class="mb-2 text-justify font-serif dark:text-white">Matahari bersinar terik siang itu, di SMU Teitan. Hari itu adalah hari terakhir mereka sebelum liburan musim panas tiba. Meskipun begitu, para guru tetap bertekad memberikan pelajaran sampai bel berbunyi, mengabaikan keluh kesah para murid. Ai Haibara memandang keluar melewati jendela kelasnya, pikirannya menerawang ke tempat lain, atau lebih tepatnya, ke waktu tertentu.</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">Sudah sepuluh tahun berlalu… semenjak hari itu, ya?</p>
+								<p class="mb-2 text-justify font-serif underline dark:text-white">Flashback</p>
+								<p class="mb-6 text-justify font-serif dark:text-white"><span class="italic">“Conan!!!”</span> teriak Ayumi di sampingnya, histeris. Ia memeluk erat-erat gadis kecil itu, demikian juga dengan Genta dan Mitsuhiko. Toh, hanya merekalah yang tersisa dari Grup Detektif Cilik.</p>
+								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
 							</div>
 						</div>
 					</div>
 					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
-						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md">
-							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_2.jpg" loading="lazy" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md dark:bg-dark">
+							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_2.jpg" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
 							<div class="px-6 py-8">
 								<h3>
-									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary">Pilihan dengan penderitaan yang terkecil</a>
+									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">Pilihan dengan penderitaan yang terkecil</a>
 								</h3>
-								<p class="mb-2 text-justify font-serif">PRANG!!! Ai melemparkan botol tersebut keluar jendela, dan benda itu jatuh berkeping-keping di atas tanah. Shinichi memandangnya tidak percaya.</p>
-								<p class="mb-2 text-justify font-serif italic">“Kau...”</p>
-								<p class="mb-2 text-justify font-serif italic">
+								<p class="mb-2 text-justify font-serif dark:text-white">PRANG!!! Ai melemparkan botol tersebut keluar jendela, dan benda itu jatuh berkeping-keping di atas tanah. Shinichi memandangnya tidak percaya.</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">“Kau...”</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">
 									“Conan Edogawa sudah
 									<span class="line-through">mati</span> hari ini, demikian juga dengan Shiho Miyano, yang tersisa adalah Shinichi Kudo dan Ai Haibara.”
 									<span class="not-italic">gadis berambut cokelat itu tersenyum, ekspresinya penuh keyakinan.</span>
 								</p>
-								<p class="mb-2 text-justify font-serif">Shinichi memandangnya, balas tersenyum.</p>
-								<p class="mb-2 text-justify font-serif italic">
+								<p class="mb-2 text-justify font-serif dark:text-white">Shinichi memandangnya, balas tersenyum.</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">
 									“Jadi ini pilihanmu? Kalau begitu, selamat mengerjakan tugas-tugas anak SD.”
 									<span class="not-italic">dia berkata sambil bercanda.</span>
 								</p>
-								<p class="mb-6 text-justify font-serif italic">
+								<p class="mb-6 text-justify font-serif italic dark:text-white">
 									“Aku akan berusaha supaya tidak terlalu menonjol di kelas,”
 									<span class="not-italic">kata Ai,</span> “anak-anak itu sudah kehilangan kau, tahu, aku tidak akan membiarkan mereka kehilangan seorang lagi.”
 								</p>
-								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md">Read more...</a>
+								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
 							</div>
 						</div>
 					</div>
 					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
-						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md">
-							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_3.jpg" loading="lazy" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md dark:bg-dark">
+							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_3.jpg" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
 							<div class="px-6 py-8">
 								<h3>
-									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary">10 Tahun Kemudian</a>
+									<a href="#blog" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">10 Tahun Kemudian</a>
 								</h3>
-								<p class="mb-2 text-justify font-serif">Langit sudah semakin senja, dan burung-burung beterbangan kembali ke sarang masing-masing. Ai masih belum kembali.</p>
-								<p class="mb-2 text-justify font-serif italic">
+								<p class="mb-2 text-justify font-serif dark:text-white">Langit sudah semakin senja, dan burung-burung beterbangan kembali ke sarang masing-masing. Ai masih belum kembali.</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">
 									“Ai lama sekali,”
 									<span class="not-italic">kata Ayumi,</span> “bus terakhir akan berangkat tidak lama lagi, bagaimana kalau terlewat?”
 								</p>
-								<p class="mb-2 text-justify font-serif"><span class="italic">“Akan kucari dia,”</span> Mitsuhiko menawarkan diri. Sebelum teman-temannya sempat memprotes, dia sudah beranjak pergi terlebih dahulu, meskipun, dia tidak punya ide ke mana harus mencari gadis berambut cokelat tersebut.</p>
-								<p class="mb-6 text-justify font-serif">Ai Haibara. Gadis itu selalu menghilang setiap kali mereka melakukan kunjungan ke makam Conan, meskipun kembali tidak lama kemudian, tanpa memberitahu yang sebenarnya dia lakukan. Jika Ayumi atau Genta terkadang bertanya, ia selalu memberikan jawaban seenaknya. Mitsuhiko mengenalinya semenjak kecil, dan gadis itu selalu dipenuhi rahasia. Dia selalu tampak tenang, dewasa, dan misterius.</p>
-								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md">Read more...</a>
+								<p class="mb-2 text-justify font-serif dark:text-white"><span class="italic">“Akan kucari dia,”</span> Mitsuhiko menawarkan diri. Sebelum teman-temannya sempat memprotes, dia sudah beranjak pergi terlebih dahulu, meskipun, dia tidak punya ide ke mana harus mencari gadis berambut cokelat tersebut.</p>
+								<p class="mb-6 text-justify font-serif dark:text-white">Ai Haibara. Gadis itu selalu menghilang setiap kali mereka melakukan kunjungan ke makam Conan, meskipun kembali tidak lama kemudian, tanpa memberitahu yang sebenarnya dia lakukan. Jika Ayumi atau Genta terkadang bertanya, ia selalu memberikan jawaban seenaknya. Mitsuhiko mengenalinya semenjak kecil, dan gadis itu selalu dipenuhi rahasia. Dia selalu tampak tenang, dewasa, dan misterius.</p>
+								<a href="#blog" class="ease rounded-lg bg-neutral-800 px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
 							</div>
 						</div>
 					</div>
@@ -371,35 +381,35 @@
 		<!-- Blog_Section_End -->
 
 		<!-- Contact_Section_Start -->
-		<section id="contact" class="pb-32 pt-36">
+		<section id="contact" class="pb-32 pt-36 dark:bg-neutral-900">
 			<div class="mx-auto w-full max-w-2xl">
 				<div class="container">
 					<div class="w-full px-4">
 						<div class="mx-auto mb-16 max-w-xl text-center">
-							<h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
-							<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl">Let's Connect</h2>
-							<p class="text-base font-medium text-neutral-500 md:text-lg">Let's work together on innovative technology solutions!</p>
+							<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Contact</h4>
+							<h2 class="mb-4 text-3xl font-bold text-dark lg:text-4xl dark:text-white">Let's Connect</h2>
+							<p class="text-base font-medium text-neutral-500 md:text-lg dark:text-neutral-400">Let's work together on innovative technology solutions!</p>
 						</div>
 					</div>
 					<form>
 						<div class="mb-8 w-full px-4">
-							<label for="name" class="text-base font-bold text-primary">Name</label>
-							<input type="text" id="name" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+							<label for="name" class="text-base font-bold text-primary dark:text-secondary">Name</label>
+							<input type="text" id="name" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:bg-white dark:focus:border-secondary dark:focus:ring-secondary" />
 						</div>
 						<div class="mb-8 w-full px-4">
-							<label for="email" class="text-base font-bold text-primary">E-mail</label>
-							<input type="email" id="email" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+							<label for="email" class="text-base font-bold text-primary dark:text-secondary">E-mail</label>
+							<input type="email" id="email" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:bg-white dark:focus:border-secondary dark:focus:ring-secondary" />
 						</div>
 						<div class="mb-8 w-full px-4">
-							<label for="phone" class="text-base font-bold text-primary">Handphone</label>
-							<input type="text" id="phone" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+							<label for="phone" class="text-base font-bold text-primary dark:text-secondary">Handphone</label>
+							<input type="text" id="phone" class="mt-1 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:bg-white dark:focus:border-secondary dark:focus:ring-secondary" />
 						</div>
 						<div class="mb-8 w-full px-4">
-							<label for="message" class="text-base font-bold text-primary">Message</label>
-							<textarea name="message" id="message" class="mt-1 h-24 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+							<label for="message" class="text-base font-bold text-primary dark:text-secondary">Message</label>
+							<textarea name="message" id="message" class="mt-1 h-24 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:bg-white dark:focus:border-secondary dark:focus:ring-secondary"></textarea>
 						</div>
 						<div class="w-full px-4">
-							<button class="ease w-full rounded-full bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:bg-third hover:shadow-lg">Send</button>
+							<button class="ease w-full rounded-full bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:bg-third hover:shadow-lg dark:bg-secondary dark:hover:bg-third">Send</button>
 						</div>
 					</form>
 				</div>
@@ -468,21 +478,21 @@
 				<div class="w-full border-t border-neutral-700 pt-10">
 					<div class="mb-5 flex items-center justify-center pt-1">
 						<!-- LinkedIn -->
-						<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
+						<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" class="ease mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-secondary hover:bg-secondary hover:text-white">
 							<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>LinkedIn</title>
 								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
 							</svg>
 						</a>
 						<!-- GitHub -->
-						<a href="https://github.com/nantunggaputra" target="_blank" class="ease flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
+						<a href="https://github.com/nantunggaputra" target="_blank" class="ease flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-secondary hover:bg-secondary hover:text-white">
 							<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>GitHub</title>
 								<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
 							</svg>
 						</a>
 						<!-- Sololearn -->
-						<a href="https://www.sololearn.com/en/profile/29010238" target="_blank" class="ease ml-3 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-primary hover:bg-primary hover:text-white">
+						<a href="https://www.sololearn.com/en/profile/29010238" target="_blank" class="ease ml-3 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 text-neutral-400 transition duration-300 hover:border-secondary hover:bg-secondary hover:text-white">
 							<svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>Sololearn</title>
 								<path

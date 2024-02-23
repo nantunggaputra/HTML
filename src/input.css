@@ -15,6 +15,7 @@ body {
 	box-shadow: inset 0 -1px 0 0 rgba(37, 37, 37, 0.1);
 	background-color: rgba(255, 255, 255, 0.55);
 	backdrop-filter: blur(10px);
+	@apply dark:bg-dark dark:bg-opacity-55;
 }
 
 .hamburger-line {
@@ -24,6 +25,7 @@ body {
 	height: 2px;
 	background-color: rgb(37, 37, 37);
 	opacity: 0.55;
+	@apply dark:bg-white;
 }
 
 .hamburger-active > span:nth-child(1) {
