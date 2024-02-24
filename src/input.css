@@ -57,6 +57,7 @@ body {
 	align-items: center;
 	background-color: rgb(3, 108, 168);
 	animation: load 3.3s normal forwards;
+	@apply dark:bg-dark;
 }
 
 #loading #canvas {

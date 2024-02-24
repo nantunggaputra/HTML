@@ -19,12 +19,12 @@ hamburger.addEventListener('click', function () {
 });
 
 // remove_class_active_hamburger
-window.addEventListener('click', function (e) {
-  if (e.target != hamburger && e.target != navMenu) {
-    hamburger.classList.remove('hamburger-active');
-    navMenu.classList.add('hidden');
-  }
-});
+// window.addEventListener('click', function (e) {
+//   if (e.target != hamburger && e.target != navMenu) {
+//     hamburger.classList.remove('hamburger-active');
+//     navMenu.classList.add('hidden');
+//   }
+// });
 
 // darktoggle
 const darkModeToggle = document.querySelector('#darktoggle');
@@ -63,12 +63,17 @@ document.getElementById("phone").addEventListener("input", function () {
 window.addEventListener('scroll', function() {
   const goToBottom = document.getElementById('tobottom');
   const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-  const totalHeight = document.body.scrollHeight;
-  const windowHeight = window.innerHeight;
+  // const totalHeight = document.body.scrollHeight;
+  // const windowHeight = window.innerHeight;
 
-  if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
-      goToBottom.style.display = 'none';
-  } else {
-      goToBottom.style.display = 'block';
-  }
+  // if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
+  //     goToBottom.style.display = 'none';
+  // } else {
+  //     goToBottom.style.display = 'block';
+  // }
+  if (scrollPosition === 0) {
+    goToBottom.style.display = 'none';
+} else {
+    goToBottom.style.display = 'block';
+}
 });
