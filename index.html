@@ -12,7 +12,7 @@
 		<link rel="icon" href="./dist/img/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="./dist/img/favicon.ico" type="image/x-icon" />
 
-		<!-- Dark Mode -->
+		<!-- Dark_Mode -->
 		<script>
 			if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 				document.documentElement.classList.add("dark");
@@ -418,6 +418,25 @@
 			</div>
 		</section>
 		<!-- Contact_Section_End -->
+
+		<!-- Visitor_Counter_Section_Start -->
+		<section id="visitor" class="hidden bg-neutral-200 pb-32 pt-36 dark:bg-neutral-950">
+			<div class="mx-auto w-full max-w-2xl">
+				<div class="container">
+					<div class="w-full px-4">
+						<div class="mx-auto mb-16 max-w-xl text-center">
+							<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Visitor Counter</h4>
+							<h2 class="website-counter mb-4 text-3xl font-bold text-dark dark:text-white lg:text-4xl"></h2>
+							<p class="text-base font-medium text-neutral-500 dark:text-neutral-400 md:text-lg">That's how many times this page has been visited.</p>
+						</div>
+					</div>
+					<div class="hidden w-full px-4">
+						<button id="reset" class="ease hidden w-full rounded-full bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:bg-third hover:shadow-lg dark:bg-secondary dark:hover:bg-third">Reset</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Visitor_Counter_Section_End -->
 
 		<!-- Footer_Start -->
 		<footer id="footer" class="bg-dark pb-8 pt-24 lg:px-10">
