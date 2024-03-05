@@ -60,6 +60,18 @@ body {
 	@apply dark:bg-dark;
 }
 
+.typed-out {
+	animation:
+		typing 0.5s steps(15, end) forwards,
+		wrapping 3s normal;
+	animation-delay: 2s;
+}
+
+.blink {
+	animation: blinking 1s infinite;
+	animation-delay: 2.5s;
+}
+
 #loading #canvas {
 	position: absolute;
 }
@@ -200,5 +212,32 @@ body {
 	}
 	100% {
 		transform: scaleY(1);
+	}
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes wrapping {
+	from {
+		white-space: nowrap;
+	}
+	to {
+		white-space: break-space;
+	}
+}
+
+@keyframes blinking {
+	from {
+		color: transparent;
+	}
+	to {
+		color: inherit;
 	}
 }
