@@ -723,6 +723,10 @@ video {
   margin-left: 0.75rem;
 }
 
+.ml-\[18px\] {
+  margin-left: 18px;
+}
+
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -757,10 +761,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.ml-\[18px\] {
-  margin-left: 18px;
 }
 
 .block {
@@ -1363,11 +1363,11 @@ body.bluelightfilter:before {
   pointer-events: none;
   content: "";
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(255, 255, 191);
+  left: -144px;
+  top: -384px;
+  right: -144px;
+  bottom: -384px;
+  background-color: rgba(255, 235, 175);
   mix-blend-mode: multiply;
 }
 
@@ -1685,10 +1685,6 @@ body.bluelightfilter:before {
   color: rgb(3 108 168 / var(--tw-text-opacity));
 }
 
-:is(.dark .dark\:inline-flex) {
-  display: inline-flex;
-}
-
 :is(.dark .dark\:hidden) {
   display: none;
 }
@@ -1840,10 +1836,6 @@ body.bluelightfilter:before {
 }
 
 @media (min-width: 768px) {
-  .md\:inline-flex {
-    display: inline-flex;
-  }
-
   .md\:hidden {
     display: none;
   }

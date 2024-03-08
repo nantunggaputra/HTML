@@ -49,11 +49,11 @@ body.bluelightfilter:before {
 	pointer-events: none;
 	content: "";
 	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgb(255, 255, 191);
+	left: -144px;
+	top: -384px;
+	right: -144px;
+	bottom: -384px;
+	background-color: rgba(255, 235, 175);
 	mix-blend-mode: multiply;
 	@apply dark:bg-neutral-500;
 }
