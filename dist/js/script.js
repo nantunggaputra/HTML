@@ -2,7 +2,6 @@
 window.onscroll = function () {
     const header = document.querySelector('header')
     const fixedNav = header.offsetTop;
-
     if (window.pageYOffset > fixedNav) {
         header.classList.add('navbar-fixed');
     } else {
@@ -66,12 +65,9 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
   const message = document.getElementById('message').value;
-
   const subject = `${name} [${email}]`;
   const body = message + "\n\n" + name + "\n" + phone;
-
   const mailtoLink = 'mailto:anggunnantunggaputra@gmail.com' + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
   window.location.href = mailtoLink;
 });
 
@@ -99,7 +95,6 @@ window.addEventListener('scroll', function() {
   const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
   // const totalHeight = document.body.scrollHeight;
   // const windowHeight = window.innerHeight;
-
   // if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
   //     goToBottom.style.display = 'none';
   // } else {
