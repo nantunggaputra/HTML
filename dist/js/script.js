@@ -45,6 +45,17 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
   darkModeToggle.checked = false;
 }
 
+// bluelightfiltertoggle
+const readingModeToggle = document.getElementById("apply-filter");
+readingModeToggle.addEventListener("click", dim);
+function dim() {
+	if (document.body.classList.contains("bluelightfilter")) {
+		document.body.classList.remove("bluelightfilter");
+	} else {
+		document.body.classList.add("bluelightfilter");
+	}
+}
+
 // input_name
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {
