@@ -50,13 +50,29 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {
   let inputValue = inputElement.value;
-  let cleanValue = inputValue.replace(/[^a-zA-Z]/g, "");
+  let cleanValue = inputValue.replace(/[^a-zA-Z\s'\-]/g, "");
   inputElement.value = cleanValue;
 });
 
 // input_number
 document.getElementById("phone").addEventListener("input", function () {
   this.value = this.value.replace(/[^0-9]/g, "");
+});
+
+// submit mailto:
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('message').value;
+
+  const subject = `${name} [${email}]`;
+  const body = message + "\n\n" + name + "\n" + phone;
+
+  const mailtoLink = 'mailto:anggunnantunggaputra@gmail.com' + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailtoLink;
 });
 
 // visitor_counter
