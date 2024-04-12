@@ -1,20 +1,20 @@
 // fixed_navbar
 window.onscroll = function () {
-    const header = document.querySelector('header')
-    const fixedNav = header.offsetTop;
-    if (window.pageYOffset > fixedNav) {
-        header.classList.add('navbar-fixed');
-    } else {
-        header.classList.remove('navbar-fixed');
-    }
+	const header = document.querySelector("header");
+	const fixedNav = header.offsetTop;
+	if (window.pageYOffset > fixedNav) {
+		header.classList.add("navbar-fixed");
+	} else {
+		header.classList.remove("navbar-fixed");
+	}
 };
 
 // toggle_class_active_hamburger
-const hamburger = document.querySelector('#hamburger');
-const navMenu = document.querySelector('#nav-menu');
-hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('hamburger-active');
-    navMenu.classList.toggle('hidden');
+const hamburger = document.querySelector("#hamburger");
+const navMenu = document.querySelector("#nav-menu");
+hamburger.addEventListener("click", function () {
+	hamburger.classList.toggle("hamburger-active");
+	navMenu.classList.toggle("hidden");
 });
 
 // remove_class_active_hamburger
@@ -26,23 +26,23 @@ hamburger.addEventListener('click', function () {
 // });
 
 // darktoggle
-const darkModeToggle = document.querySelector('#darktoggle');
-const html = document.querySelector('html');
-darkModeToggle.addEventListener('click', function () {
-  if (darkModeToggle.checked) {
-    html.classList.add('dark');
-    localStorage.theme = 'dark'
-  } else {
-    html.classList.remove('dark');
-    localStorage.theme = 'light'
-  }
+const darkModeToggle = document.querySelector("#darktoggle");
+const html = document.querySelector("html");
+darkModeToggle.addEventListener("click", function () {
+	if (darkModeToggle.checked) {
+		html.classList.add("dark");
+		localStorage.theme = "dark";
+	} else {
+		html.classList.remove("dark");
+		localStorage.theme = "light";
+	}
 });
 
 // darktoggle_localstorage
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  darkModeToggle.checked = true;
+if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+	darkModeToggle.checked = true;
 } else {
-  darkModeToggle.checked = false;
+	darkModeToggle.checked = false;
 }
 
 // bluelightfiltertoggle
@@ -59,27 +59,53 @@ function dim() {
 // input_name
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {
-  let inputValue = inputElement.value;
-  let cleanValue = inputValue.replace(/[^a-zA-Z\s'\-]/g, "");
-  inputElement.value = cleanValue;
+	let inputValue = inputElement.value;
+	let cleanValue = inputValue.replace(/[^a-zA-Z\s'\-]/g, "");
+	inputElement.value = cleanValue;
 });
 
 // input_number
 document.getElementById("phone").addEventListener("input", function () {
-  this.value = this.value.replace(/[^0-9]/g, "");
+	this.value = this.value.replace(/[^0-9]/g, "");
 });
 
 // submit mailto:
-document.getElementById('myForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone').value;
-  const message = document.getElementById('message').value;
-  const subject = `${name} [${email}]`;
-  const body = message + "\n\n" + name + "\n" + phone;
-  const mailtoLink = 'mailto:anggunnantunggaputra@gmail.com' + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  window.location.href = mailtoLink;
+document.getElementById("myForm").addEventListener("submit", function (event) {
+	event.preventDefault();
+	if (typeof Storage !== "undefined") {
+		if (localStorage.getItem("lastEmailSent")) {
+			let lastEmailSent = new Date(localStorage.getItem("lastEmailSent"));
+			let currentTime = new Date();
+			let timeDiff = currentTime - lastEmailSent;
+			let hoursDiff = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			if (hoursDiff >= 24) {
+				localStorage.setItem("emailCount", 0);
+			}
+		}
+		if (localStorage.getItem("emailCount")) {
+			let emailCount = Number(localStorage.getItem("emailCount"));
+			if (emailCount >= 3) {
+				return;
+			}
+			localStorage.setItem("emailCount", emailCount + 1);
+		} else {
+			localStorage.setItem("emailCount", 1);
+		}
+		localStorage.setItem("lastEmailSent", new Date());
+	} else {
+		return;
+	}
+	const name = document.getElementById("name").value;
+	const email = document.getElementById("email").value;
+	const phone = document.getElementById("phone").value;
+	const message = document.getElementById("message").value;
+	if (!name || !email || !phone || !message) {
+		return;
+	}
+	const subject = `${name} [${email}]`;
+	const body = message + "\n\n" + name + "\n" + phone;
+	const mailtoLink = "mailto:anggunnantunggaputra@gmail.com" + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+	window.location.href = mailtoLink;
 });
 
 // visitor_counter
@@ -87,33 +113,33 @@ var counterContainer = document.querySelector(".website-counter");
 var resetButton = document.querySelector("#reset");
 var visitCount = localStorage.getItem("page_view");
 if (visitCount) {
-  visitCount = Number(visitCount) + 1;
-  localStorage.setItem("page_view", visitCount);
+	visitCount = Number(visitCount) + 1;
+	localStorage.setItem("page_view", visitCount);
 } else {
-  visitCount = 1;
-  localStorage.setItem("page_view", 1);
+	visitCount = 1;
+	localStorage.setItem("page_view", 1);
 }
 counterContainer.innerHTML = visitCount;
 resetButton.addEventListener("click", () => {
-  visitCount = 1;
-  localStorage.setItem("page_view", 1);
-  counterContainer.innerHTML = visitCount;
+	visitCount = 1;
+	localStorage.setItem("page_view", 1);
+	counterContainer.innerHTML = visitCount;
 });
 
 // tobottom
-window.addEventListener('scroll', function() {
-  const goToBottom = document.getElementById('tobottom');
-  const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-  // const totalHeight = document.body.scrollHeight;
-  // const windowHeight = window.innerHeight;
-  // if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
-  //     goToBottom.style.display = 'none';
-  // } else {
-  //     goToBottom.style.display = 'block';
-  // }
-  if (scrollPosition === 0) {
-    goToBottom.style.display = 'none';
-} else {
-    goToBottom.style.display = 'block';
-}
+window.addEventListener("scroll", function () {
+	const goToBottom = document.getElementById("tobottom");
+	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+	// const totalHeight = document.body.scrollHeight;
+	// const windowHeight = window.innerHeight;
+	// if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
+	//     goToBottom.style.display = 'none';
+	// } else {
+	//     goToBottom.style.display = 'block';
+	// }
+	if (scrollPosition === 0) {
+		goToBottom.style.display = "none";
+	} else {
+		goToBottom.style.display = "block";
+	}
 });
