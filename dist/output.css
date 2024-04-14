@@ -638,6 +638,10 @@ video {
   z-index: 9999;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -661,6 +665,11 @@ video {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mx-\[6px\] {
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .-ml-1 {
