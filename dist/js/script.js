@@ -72,34 +72,54 @@ document.getElementById("phone").addEventListener("input", function () {
 // submit mailto:
 document.getElementById("myForm").addEventListener("submit", function (event) {
 	event.preventDefault();
-	if (typeof Storage !== "undefined") {
-		if (localStorage.getItem("lastEmailSent")) {
-			let lastEmailSent = new Date(localStorage.getItem("lastEmailSent"));
-			let currentTime = new Date();
+	let storageAvailable = true;
+	let storage = null;
+	try {
+		if (typeof Storage !== "undefined") {
+			storage = localStorage;
+		} else if (typeof sessionStorage !== "undefined") {
+			storage = sessionStorage;
+		} else {
+			storageAvailable = false;
+		}
+	} catch (error) {
+		console.error("An error occurred while accessing web storage:", error);
+		storageAvailable = false;
+	}
+	if (!storageAvailable) {
+		console.log("Web storage is not supported.");
+		return;
+	}
+	try {
+		let lastEmailSent = parseInt(storage.getItem("lastEmailSent"));
+		let currentTime = Date.now();
+		if (lastEmailSent) {
 			let timeDiff = currentTime - lastEmailSent;
 			let hoursDiff = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			if (hoursDiff >= 24) {
-				localStorage.setItem("emailCount", 0);
+				storage.setItem("emailCount", "0");
 			}
 		}
-		if (localStorage.getItem("emailCount")) {
-			let emailCount = Number(localStorage.getItem("emailCount"));
-			if (emailCount >= 3) {
-				return;
-			}
-			localStorage.setItem("emailCount", emailCount + 1);
-		} else {
-			localStorage.setItem("emailCount", 1);
+		let emailCount = parseInt(storage.getItem("emailCount")) || 0;
+		if (emailCount >= 3) {
+			console.log("You have exceeded the send request limit.");
+			return;
 		}
-		localStorage.setItem("lastEmailSent", new Date());
-	} else {
+		storage.setItem("emailCount", emailCount + 1);
+		storage.setItem("lastEmailSent", currentTime.toString());
+	} catch (error) {
+		console.error("An error occurred while accessing web storage:", error);
+	}
+	const name = document.getElementById("name").value.trim();
+	const email = document.getElementById("email").value.trim();
+	const phone = document.getElementById("phone").value.trim();
+	const message = document.getElementById("message").value.trim();
+	if (!name || !email || !phone || !message) {
+		alert("Please fill in all fields.");
 		return;
 	}
-	const name = document.getElementById("name").value;
-	const email = document.getElementById("email").value;
-	const phone = document.getElementById("phone").value;
-	const message = document.getElementById("message").value;
-	if (!name || !email || !phone || !message) {
+	if (name.length === 0 || email.length === 0 || phone.length === 0 || message.length === 0) {
+		alert("Please provide valid input.");
 		return;
 	}
 	const subject = `${name} [${email}]`;
