@@ -95,7 +95,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 		let currentTime = Date.now();
 		if (lastEmailSent) {
 			let timeDiff = currentTime - lastEmailSent;
-			let hoursDiff = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			let hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60));
 			if (hoursDiff >= 24) {
 				storage.setItem("emailCount", "0");
 			}
@@ -114,18 +114,15 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 	const email = document.getElementById("email").value.trim();
 	const phone = document.getElementById("phone").value.trim();
 	const message = document.getElementById("message").value.trim();
-	if (!name || !email || !phone || !message) {
-		alert("Please fill in all fields.");
-		return;
-	}
-	if (name.length === 0 || email.length === 0 || phone.length === 0 || message.length === 0) {
-		alert("Please provide valid input.");
-		return;
-	}
 	const subject = `${name} [${email}]`;
 	const body = message + "\n\n" + name + "\n" + phone;
 	const mailtoLink = "mailto:anggunnantunggaputra@gmail.com" + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-	window.location.href = mailtoLink;
+	if (!name || !email || !phone || !message || name.length === 0 || email.length === 0 || phone.length === 0 || message.length === 0) {
+		alert("Please provide valid input.");
+		return;
+	} else {
+		window.location.href = mailtoLink;
+	}
 });
 
 // visitor_counter
