@@ -56,6 +56,51 @@ function dim() {
 	}
 }
 
+// audio_on_click_profile_photo
+const audio1 = new Audio("./dist/audio/Project_DMM_-_Kimi_ni_Dekiru_Nanika_(OST_Ultraman_Cosmos).mp3");
+const audio2 = new Audio("./dist/audio/DEEN_-_Kimi_ga_inai_Natsu(OST_Detective_Conan).mp3");
+audio1.loop = true;
+audio2.loop = true;
+let isPlaying1 = false;
+let isPlaying2 = false;
+document.getElementById("playAudio1").addEventListener("click", function () {
+	if (isPlaying1) {
+		audio1.pause();
+		isPlaying1 = false;
+	} else {
+		if (isPlaying2) {
+			audio2.pause();
+			isPlaying2 = false;
+		}
+		audio1.play();
+		isPlaying1 = true;
+	}
+});
+document.getElementById("playAudio2").addEventListener("click", function () {
+	if (isPlaying2) {
+		audio2.pause();
+		isPlaying2 = false;
+	} else {
+		if (isPlaying1) {
+			audio1.pause();
+			isPlaying1 = false;
+		}
+		audio2.play();
+		isPlaying2 = true;
+	}
+});
+
+// project_based_link
+document.addEventListener("DOMContentLoaded", function () {
+	const projectLink = document.querySelector(".project-based-link");
+	projectLink.addEventListener("click", function (event) {
+		event.preventDefault();
+		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
+		window.open("https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/", "_blank");
+		window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
+	});
+});
+
 // input_name
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {
