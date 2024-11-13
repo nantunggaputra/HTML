@@ -25,6 +25,13 @@ hamburger.addEventListener("click", function () {
 //   }
 // });
 
+// dark_mode
+if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+	document.documentElement.classList.add("dark");
+} else {
+	document.documentElement.classList.remove("dark");
+}
+
 // darktoggle
 const darkModeToggle = document.querySelector("#darktoggle");
 const html = document.querySelector("html");

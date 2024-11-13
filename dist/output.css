@@ -598,8 +598,8 @@ video {
   bottom: -11rem;
 }
 
-.bottom-7 {
-  bottom: 1.75rem;
+.bottom-4 {
+  bottom: 1rem;
 }
 
 .left-0 {
@@ -624,10 +624,6 @@ video {
 
 .top-full {
   top: 100%;
-}
-
-.bottom-4 {
-  bottom: 1rem;
 }
 
 .-z-10 {
