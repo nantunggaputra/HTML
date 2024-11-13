@@ -233,7 +233,7 @@ window.addEventListener("scroll", function () {
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
-	if (scrollPosition + viewportHeight >= documentHeight - 1) {
+	if (scrollPosition + viewportHeight >= documentHeight - 240) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
