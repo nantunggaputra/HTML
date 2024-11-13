@@ -17,7 +17,7 @@ hamburger.addEventListener("click", function () {
 	navMenu.classList.toggle("hidden");
 });
 
-// remove_class_active_hamburger
+// // remove_class_active_hamburger
 // window.addEventListener('click', function (e) {
 //   if (e.target != hamburger && e.target != navMenu) {
 //     hamburger.classList.remove('hamburger-active');
@@ -56,37 +56,75 @@ function dim() {
 	}
 }
 
-// audio_on_click_profile_photo
+// audio
 const audio1 = new Audio("./dist/audio/Project_DMM_-_Kimi_ni_Dekiru_Nanika_(OST_Ultraman_Cosmos).mp3");
 const audio2 = new Audio("./dist/audio/DEEN_-_Kimi_ga_inai_Natsu(OST_Detective_Conan).mp3");
 audio1.loop = true;
 audio2.loop = true;
 let isPlaying1 = false;
 let isPlaying2 = false;
-document.getElementById("playAudio1").addEventListener("click", function () {
+
+// // audio_on_click_profile_photo
+// document.getElementById("playAudio1").addEventListener("click", function () {
+// 	if (isPlaying1) {
+// 		audio1.pause();
+// 		isPlaying1 = false;
+// 	} else {
+// 		if (isPlaying2) {
+// 			audio2.pause();
+// 			isPlaying2 = false;
+// 		}
+// 		audio1.play();
+// 		isPlaying1 = true;
+// 	}
+// });
+// document.getElementById("playAudio2").addEventListener("click", function () {
+// 	if (isPlaying2) {
+// 		audio2.pause();
+// 		isPlaying2 = false;
+// 	} else {
+// 		if (isPlaying1) {
+// 			audio1.pause();
+// 			isPlaying1 = false;
+// 		}
+// 		audio2.play();
+// 		isPlaying2 = true;
+// 	}
+// });
+
+// audio_on_click_button
+const button1 = document.getElementById("playAudioButton1");
+const button2 = document.getElementById("playAudioButton2");
+button1.addEventListener("click", function () {
 	if (isPlaying1) {
 		audio1.pause();
 		isPlaying1 = false;
+		button1.innerText = "♪";
 	} else {
 		if (isPlaying2) {
 			audio2.pause();
 			isPlaying2 = false;
+			button2.innerText = "𝄞";
 		}
 		audio1.play();
 		isPlaying1 = true;
+		button1.innerText = "⏸";
 	}
 });
-document.getElementById("playAudio2").addEventListener("click", function () {
+button2.addEventListener("click", function () {
 	if (isPlaying2) {
 		audio2.pause();
 		isPlaying2 = false;
+		button2.innerText = "𝄞";
 	} else {
 		if (isPlaying1) {
 			audio1.pause();
 			isPlaying1 = false;
+			button1.innerText = "♪";
 		}
 		audio2.play();
 		isPlaying2 = true;
+		button2.innerText = "⏸";
 	}
 });
 
@@ -96,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	projectLink.addEventListener("click", function (event) {
 		event.preventDefault();
 		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
-		window.open("https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/", "_blank");
 		window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
 	});
 });
@@ -191,6 +228,8 @@ resetButton.addEventListener("click", () => {
 // tobottom
 window.addEventListener("scroll", function () {
 	const goToBottom = document.getElementById("tobottom");
+	const audioButton1 = document.getElementById("playAudioButton1");
+	const audioButton2 = document.getElementById("playAudioButton2");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	// const totalHeight = document.body.scrollHeight;
 	// const windowHeight = window.innerHeight;
@@ -201,7 +240,11 @@ window.addEventListener("scroll", function () {
 	// }
 	if (scrollPosition === 0) {
 		goToBottom.style.display = "none";
+		audioButton1.style.display = "none";
+		audioButton2.style.display = "none";
 	} else {
-		goToBottom.style.display = "block";
+		goToBottom.style.display = "";
+		audioButton1.style.display = "";
+		audioButton2.style.display = "";
 	}
 });
