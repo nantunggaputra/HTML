@@ -108,7 +108,7 @@ button1.addEventListener("click", function () {
 		}
 		audio1.play();
 		isPlaying1 = true;
-		button1.innerText = "❣";
+		button1.innerText = "ᯤ";
 	}
 });
 button2.addEventListener("click", function () {
@@ -124,7 +124,7 @@ button2.addEventListener("click", function () {
 		}
 		audio2.play();
 		isPlaying2 = true;
-		button2.innerText = "❣";
+		button2.innerText = "ᯤ";
 	}
 });
 
@@ -231,18 +231,9 @@ window.addEventListener("scroll", function () {
 	const audioButton1 = document.getElementById("playAudioButton1");
 	const audioButton2 = document.getElementById("playAudioButton2");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-	const windowHeight = window.innerHeight;
+	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
-	// if (scrollPosition === 0) {
-	// 	goToBottom.style.display = "none";
-	// 	audioButton1.style.display = "none";
-	// 	audioButton2.style.display = "none";
-	// } else {
-	// 	goToBottom.style.display = "";
-	// 	audioButton1.style.display = "";
-	// 	audioButton2.style.display = "";
-	// }
-	if (scrollPosition + windowHeight >= documentHeight) {
+	if (scrollPosition + viewportHeight >= documentHeight - 1) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
