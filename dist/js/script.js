@@ -104,18 +104,18 @@ button1.addEventListener("click", function () {
 		if (isPlaying2) {
 			audio2.pause();
 			isPlaying2 = false;
-			button2.innerText = "𝄞";
+			button2.innerText = "♩";
 		}
 		audio1.play();
 		isPlaying1 = true;
-		button1.innerText = "⏸";
+		button1.innerText = "❣";
 	}
 });
 button2.addEventListener("click", function () {
 	if (isPlaying2) {
 		audio2.pause();
 		isPlaying2 = false;
-		button2.innerText = "𝄞";
+		button2.innerText = "♩";
 	} else {
 		if (isPlaying1) {
 			audio1.pause();
@@ -124,7 +124,7 @@ button2.addEventListener("click", function () {
 		}
 		audio2.play();
 		isPlaying2 = true;
-		button2.innerText = "⏸";
+		button2.innerText = "❣";
 	}
 });
 
@@ -231,14 +231,18 @@ window.addEventListener("scroll", function () {
 	const audioButton1 = document.getElementById("playAudioButton1");
 	const audioButton2 = document.getElementById("playAudioButton2");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-	// const totalHeight = document.body.scrollHeight;
-	// const windowHeight = window.innerHeight;
-	// if (scrollPosition + windowHeight >= totalHeight || scrollPosition === 0) {
-	//     goToBottom.style.display = 'none';
+	const windowHeight = window.innerHeight;
+	const documentHeight = document.documentElement.scrollHeight;
+	// if (scrollPosition === 0) {
+	// 	goToBottom.style.display = "none";
+	// 	audioButton1.style.display = "none";
+	// 	audioButton2.style.display = "none";
 	// } else {
-	//     goToBottom.style.display = 'block';
+	// 	goToBottom.style.display = "";
+	// 	audioButton1.style.display = "";
+	// 	audioButton2.style.display = "";
 	// }
-	if (scrollPosition === 0) {
+	if (scrollPosition + windowHeight >= documentHeight) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
