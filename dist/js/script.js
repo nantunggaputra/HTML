@@ -34,8 +34,22 @@ if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.match
 
 // darktoggle
 const darkModeToggle = document.querySelector("#darktoggle");
+const audioElements = document.querySelectorAll("audio");
 const html = document.querySelector("html");
 darkModeToggle.addEventListener("click", function () {
+	audioElements.forEach((audio) => {
+		audio.pause();
+	});
+	if (isPlaying1) {
+		audio1.pause();
+		isPlaying1 = false;
+		button1.innerText = "♪";
+	}
+	if (isPlaying2) {
+		audio2.pause();
+		isPlaying2 = false;
+		button2.innerText = "♩";
+	}
 	if (darkModeToggle.checked) {
 		html.classList.add("dark");
 		localStorage.theme = "dark";
@@ -65,7 +79,7 @@ function dim() {
 
 // audio
 const audio1 = new Audio("./dist/audio/Project_DMM_-_Kimi_ni_Dekiru_Nanika_(OST_Ultraman_Cosmos).mp3");
-const audio2 = new Audio("./dist/audio/DEEN_-_Kimi_ga_inai_Natsu(OST_Detective_Conan).mp3");
+const audio2 = new Audio("./dist/audio/DEEN_-_Kimi_ga_inai_Natsu_(OST_Detective_Conan).mp3");
 audio1.loop = true;
 audio2.loop = true;
 let isPlaying1 = false;
@@ -103,6 +117,9 @@ let isPlaying2 = false;
 const button1 = document.getElementById("playAudioButton1");
 const button2 = document.getElementById("playAudioButton2");
 button1.addEventListener("click", function () {
+	audioElements.forEach((audio) => {
+		audio.pause();
+	});
 	if (isPlaying1) {
 		audio1.pause();
 		isPlaying1 = false;
@@ -119,6 +136,9 @@ button1.addEventListener("click", function () {
 	}
 });
 button2.addEventListener("click", function () {
+	audioElements.forEach((audio) => {
+		audio.pause();
+	});
 	if (isPlaying2) {
 		audio2.pause();
 		isPlaying2 = false;
@@ -142,6 +162,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		event.preventDefault();
 		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
 		window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
+	});
+});
+
+// audio_source
+const audioSource = document.querySelectorAll("audio");
+audioSource.forEach((audio) => {
+	audio.addEventListener("play", () => {
+		if (isPlaying1) {
+			audio1.pause();
+			isPlaying1 = false;
+			button1.innerText = "♪";
+		}
+		if (isPlaying2) {
+			audio2.pause();
+			isPlaying2 = false;
+			button2.innerText = "♩";
+		}
 	});
 });
 
