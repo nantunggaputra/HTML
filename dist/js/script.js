@@ -269,21 +269,33 @@ resetButton.addEventListener("click", () => {
 	counterContainer.innerHTML = visitCount;
 });
 
+// donation
+document.addEventListener("DOMContentLoaded", function () {
+	const projectLink = document.querySelector(".donation");
+	projectLink.addEventListener("click", function (event) {
+		event.preventDefault();
+		window.open("https://trakteer.id/nantunggaputra", "_blank");
+	});
+});
+
 // tobottom
 window.addEventListener("scroll", function () {
 	const goToBottom = document.getElementById("tobottom");
 	const audioButton1 = document.getElementById("playAudioButton1");
 	const audioButton2 = document.getElementById("playAudioButton2");
+	const donationButton = document.getElementById("donation");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
-	if (scrollPosition + viewportHeight >= documentHeight - 240) {
+	if (scrollPosition + viewportHeight >= documentHeight - 48) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
+		donationButton.style.display = "none";
 	} else {
 		goToBottom.style.display = "";
 		audioButton1.style.display = "";
 		audioButton2.style.display = "";
+		donationButton.style.display = "";
 	}
 });
