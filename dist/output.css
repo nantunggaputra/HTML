@@ -646,6 +646,38 @@ video {
   top: 100%;
 }
 
+.-bottom-\[10vw\] {
+  bottom: -10vw;
+}
+
+.-top-\[16vw\] {
+  top: -16vw;
+}
+
+.-top-\[8vw\] {
+  top: -8vw;
+}
+
+.-top-\[4vw\] {
+  top: -4vw;
+}
+
+.-left-\[0\] {
+  left: 0;
+}
+
+.-bottom-\[32vw\] {
+  bottom: -32vw;
+}
+
+.-bottom-\[20vw\] {
+  bottom: -20vw;
+}
+
+.-bottom-\[22vw\] {
+  bottom: -22vw;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -1925,6 +1957,16 @@ body.bluelightfilter:before {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-neutral-800) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-neutral-600) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+}
+
 :is(.dark .dark\:from-neutral-900) {
   --tw-gradient-from: #171717 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(23 23 23 / 0) var(--tw-gradient-to-position);
@@ -1941,6 +1983,10 @@ body.bluelightfilter:before {
 
 :is(.dark .dark\:fill-white) {
   fill: #fff;
+}
+
+:is(.dark .dark\:fill-dark) {
+  fill: #252525;
 }
 
 :is(.dark .dark\:text-dark) {
@@ -1971,6 +2017,16 @@ body.bluelightfilter:before {
 :is(.dark .dark\:text-white) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-neutral-300) {
+  --tw-text-opacity: 1;
+  color: rgb(212 212 212 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-neutral-200) {
+  --tw-text-opacity: 1;
+  color: rgb(229 229 229 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:opacity-100) {
