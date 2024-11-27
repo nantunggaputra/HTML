@@ -17,14 +17,6 @@ hamburger.addEventListener("click", function () {
 	navMenu.classList.toggle("hidden");
 });
 
-// // remove_class_active_hamburger
-// window.addEventListener('click', function (e) {
-//   if (e.target != hamburger && e.target != navMenu) {
-//     hamburger.classList.remove('hamburger-active');
-//     navMenu.classList.add('hidden');
-//   }
-// });
-
 // dark_mode
 if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 	document.documentElement.classList.add("dark");
@@ -85,34 +77,6 @@ audio2.loop = true;
 let isPlaying1 = false;
 let isPlaying2 = false;
 
-// // audio_on_click_profile_photo
-// document.getElementById("playAudio1").addEventListener("click", function () {
-// 	if (isPlaying1) {
-// 		audio1.pause();
-// 		isPlaying1 = false;
-// 	} else {
-// 		if (isPlaying2) {
-// 			audio2.pause();
-// 			isPlaying2 = false;
-// 		}
-// 		audio1.play();
-// 		isPlaying1 = true;
-// 	}
-// });
-// document.getElementById("playAudio2").addEventListener("click", function () {
-// 	if (isPlaying2) {
-// 		audio2.pause();
-// 		isPlaying2 = false;
-// 	} else {
-// 		if (isPlaying1) {
-// 			audio1.pause();
-// 			isPlaying1 = false;
-// 		}
-// 		audio2.play();
-// 		isPlaying2 = true;
-// 	}
-// });
-
 // audio_on_click_button
 const button1 = document.getElementById("playAudioButton1");
 const button2 = document.getElementById("playAudioButton2");
@@ -155,13 +119,29 @@ button2.addEventListener("click", function () {
 	}
 });
 
+// donations_link
+document.addEventListener("DOMContentLoaded", function () {
+	const donationsLinks = document.querySelectorAll(".donations-link");
+	donationsLinks.forEach((donationsLink) => {
+		donationsLink.addEventListener("click", function (event) {
+			event.preventDefault();
+			window.open("https://trakteer.id/nantunggaputra", "_blank");
+			setTimeout(() => {
+				window.location.href = donationsLink.getAttribute("title");
+			}, 100);
+		});
+	});
+});
+
 // project_based_link
 document.addEventListener("DOMContentLoaded", function () {
 	const projectLink = document.querySelector(".project-based-link");
 	projectLink.addEventListener("click", function (event) {
 		event.preventDefault();
 		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
-		window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
+		setTimeout(() => {
+			window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
+		}, 100);
 	});
 });
 
@@ -195,7 +175,7 @@ document.getElementById("phone").addEventListener("input", function () {
 	this.value = this.value.replace(/[^0-9]/g, "");
 });
 
-// submit mailto:
+// submit_mailto:
 document.getElementById("myForm").addEventListener("submit", function (event) {
 	event.preventDefault();
 	let storageAvailable = true;
@@ -271,8 +251,8 @@ resetButton.addEventListener("click", () => {
 
 // donation
 document.addEventListener("DOMContentLoaded", function () {
-	const projectLink = document.querySelector(".donation");
-	projectLink.addEventListener("click", function (event) {
+	const donationLink = document.querySelector(".donation");
+	donationLink.addEventListener("click", function (event) {
 		event.preventDefault();
 		window.open("https://trakteer.id/nantunggaputra", "_blank");
 	});
@@ -287,7 +267,7 @@ window.addEventListener("scroll", function () {
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
-	if (scrollPosition + viewportHeight >= documentHeight - 48) {
+	if (scrollPosition + viewportHeight >= documentHeight - 200) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
