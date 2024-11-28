@@ -133,17 +133,17 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
-// project_based_link
-document.addEventListener("DOMContentLoaded", function () {
-	const projectLink = document.querySelector(".project-based-link");
-	projectLink.addEventListener("click", function (event) {
-		event.preventDefault();
-		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
-		setTimeout(() => {
-			window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
-		}, 100);
-	});
-});
+// // project_based_link
+// document.addEventListener("DOMContentLoaded", function () {
+// 	const projectLink = document.querySelector(".project-based-link");
+// 	projectLink.addEventListener("click", function (event) {
+// 		event.preventDefault();
+// 		window.open("https://nantunggaputra-sabikerja-frontend-web.vercel.app/", "_blank");
+// 		setTimeout(() => {
+// 			window.location.href = "https://nantunggaputra-indonesiajapantravel-beta-frontend-web.vercel.app/";
+// 		}, 100);
+// 	});
+// });
 
 // audio_source
 const audioSource = document.querySelectorAll("audio");
