@@ -6,10 +6,19 @@
 		<meta name="description" content="I am Nantungga Putra, an enthusiastic newcomer to the world of programming and web development, inspired to continually learn and enhance technical skills. This Homepage Portfolio features my latest projects around the front-end web development from several online courses including programming tech influencers. Thank you for exploring my website. I hope the provided information offers valuable insights." />
 		<link href="./dist/build.css" rel="stylesheet" />
 
+		<!-- Dark_Mode -->
+		<script>
+			if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+		</script>
+
 		<!-- Feather_Icons -->
 		<!-- <script src="https://unpkg.com/feather-icons"></script> -->
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-		<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.1/dist/feather.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.1/dist/feather.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 		<!-- Favicon -->
 		<link rel="icon" href="./dist/img/favicon.ico" type="image/x-icon" />
@@ -20,62 +29,6 @@
 
 		<title>Homepage Portfolio</title>
 	</head>
-
-	<!-- Header_Start -->
-	<header class="duration-800 ease fixed left-0 top-0 z-30 flex w-full items-center transition">
-		<div class="container">
-			<div class="relative flex items-center justify-between">
-				<div class="px-4">
-					<a href="#home" class="block py-6 text-lg font-bold text-primary dark:text-secondary">nantunggaputra</a>
-				</div>
-				<div class="flex items-center px-4">
-					<button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden">
-						<span class="hamburger-line ease origin-top-left transition duration-300"></span>
-						<span class="hamburger-line ease transition duration-300"></span>
-						<span class="hamburger-line ease origin-bottom-left transition duration-300"></span>
-					</button>
-					<nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[240px] bg-transparent py-1 lg:static lg:block lg:max-w-full">
-						<ul class="block lg:flex">
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#home" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Homepage</a>
-							</li>
-							<li></li>
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#about" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">About Me</a>
-							</li>
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#portfolio" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Portfolio</a>
-							</li>
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#tech" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Tech</a>
-							</li>
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#clients" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Clients</a>
-							</li>
-							<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
-								<a href="#contact" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Contact</a>
-							</li>
-							<li class="flex items-center rounded-lg bg-white pt-1 shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 md:pl-0 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none xl:pl-6">
-								<div class="mx-7 my-2 flex lg:mx-0 lg:my-0">
-									<button id="apply-filter" class="ease ml-1 text-sm transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary"><i data-feather="book-open" class="mr-[18px] pb-[2px]"></i></button>
-									<span class="ease mr-1 text-sm transition duration-300 dark:text-white"><i data-feather="sun" class="pb-1"></i></span>
-									<input type="checkbox" id="darktoggle" class="hidden" />
-									<label for="darktoggle">
-										<div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-dark p-1 dark:bg-white">
-											<div class="toggle-circle ease h-4 w-4 rounded-full bg-white transition duration-300 dark:bg-dark"></div>
-										</div>
-									</label>
-									<span class="ease ml-1 text-sm transition duration-300 dark:text-white"><i data-feather="moon" class="pb-1"></i></span>
-									<span class="ease mr-1 text-sm transition duration-300 dark:text-white md:hidden"><i data-feather="smartphone" class="ml-[18px] pb-1"></i></span>
-								</div>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header_End -->
 
 	<body class="bg-white">
 		<!-- Loading_Page -->
@@ -94,6 +47,62 @@
 			</div>
 		</section>
 
+		<!-- Header_Start -->
+		<header class="duration-800 ease fixed left-0 top-0 z-30 flex w-full items-center transition">
+			<div class="container">
+				<div class="relative flex items-center justify-between">
+					<div class="px-4">
+						<a href="#home" class="block py-6 text-lg font-bold text-primary dark:text-secondary">nantunggaputra</a>
+					</div>
+					<div class="flex items-center px-4">
+						<button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden">
+							<span class="hamburger-line ease origin-top-left transition duration-300"></span>
+							<span class="hamburger-line ease transition duration-300"></span>
+							<span class="hamburger-line ease origin-bottom-left transition duration-300"></span>
+						</button>
+						<nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[240px] bg-transparent py-1 lg:static lg:block lg:max-w-full">
+							<ul class="block lg:flex">
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#home" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Homepage</a>
+								</li>
+								<li></li>
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#about" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">About Me</a>
+								</li>
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#portfolio" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Portfolio</a>
+								</li>
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#tech" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Tech</a>
+								</li>
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#clients" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Clients</a>
+								</li>
+								<li class="group rounded-lg bg-white shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none">
+									<a href="#contact" class="ease mx-8 flex py-2 text-base text-dark transition duration-300 group-hover:text-primary dark:text-white dark:group-hover:text-secondary lg:mx-5 xl:mx-6">Contact</a>
+								</li>
+								<li class="flex items-center rounded-lg bg-white pt-1 shadow-lg dark:bg-dark dark:shadow-md dark:shadow-neutral-700 md:pl-0 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:rounded-none dark:lg:bg-transparent dark:lg:shadow-none xl:pl-6">
+									<div class="mx-7 my-2 flex lg:mx-0 lg:my-0">
+										<button id="apply-filter" class="ease ml-1 text-sm transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary"><i data-feather="book-open" class="mr-[18px] pb-[2px]"></i></button>
+										<span class="ease mr-1 text-sm transition duration-300 dark:text-white"><i data-feather="sun" class="pb-1"></i></span>
+										<input type="checkbox" id="darktoggle" class="hidden" />
+										<label for="darktoggle">
+											<div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-dark p-1 dark:bg-white">
+												<div class="toggle-circle ease h-4 w-4 rounded-full bg-white transition duration-300 dark:bg-dark"></div>
+											</div>
+										</label>
+										<span class="ease ml-1 text-sm transition duration-300 dark:text-white"><i data-feather="moon" class="pb-1"></i></span>
+										<span class="ease mr-1 text-sm transition duration-300 dark:text-white md:hidden"><i data-feather="smartphone" class="ml-[18px] pb-1"></i></span>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header_End -->
+
 		<!-- Hero_Section_Start -->
 		<section id="home" class="pt-36 dark:bg-dark">
 			<div class="container">
@@ -111,10 +120,14 @@
 							<span class="text-dark dark:text-white">web development</span>
 						</h2>
 						<p class="mb-10 max-w-md pt-1 font-medium leading-relaxed text-neutral-400 dark:text-neutral-500">If you want to communicate further or establish a connection, connect with me on LinkedIn. Thank you for exploring my website. I hope the provided information offers valuable insights.</p>
-						<a href="#contact" class="ease mr-2 rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-third hover:bg-third hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-third dark:hover:bg-third"><i data-feather="send" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Message</a>
-						<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" rel="noopener noreferrer nofollow" class="ease ml-2 rounded-full border border-solid border-primary bg-white px-5 py-2 font-sans text-base font-semibold text-primary transition duration-300 hover:border-third hover:text-third hover:shadow-lg dark:border-secondary dark:text-secondary dark:hover:border-third dark:hover:text-third"><i data-feather="plus" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Hire Me</a>
+						<div class="flex flex-wrap gap-5">
+							<a href="#contact" class="ease rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-third hover:bg-third hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-third dark:hover:bg-third dark:hover:shadow-lg"><i data-feather="send" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Message</a>
+							<a href="https://id.linkedin.com/in/nantungga-putra-451779116" target="_blank" rel="noopener noreferrer nofollow" class="ease rounded-full border border-solid border-primary bg-white px-5 py-2 font-sans text-base font-semibold text-primary transition duration-300 hover:border-third hover:text-third hover:shadow-lg dark:border-secondary dark:text-secondary dark:hover:border-third dark:hover:text-third dark:hover:shadow-lg"><i data-feather="plus" class="-ml-1 mr-2 inline-flex pb-1 pt-px"></i>Hire Me</a>
+							<a href="https://contra.com/nantungga_putra_f5y67v1g" target="_blank" rel="noopener noreferrer nofollow" class="ease rounded-full border border-solid border-dark bg-white px-5 py-2 font-sans text-base font-semibold text-dark transition duration-300 hover:border-black hover:text-black hover:shadow-lg dark:hover:border-black dark:hover:text-black dark:hover:shadow-lg">✦</a>
+						</div>
 					</div>
-					<div class="w-full self-end px-4 lg:w-1/2">
+
+					<div class="w-full self-end pb-1 lg:w-1/2">
 						<div class="relative mt-10">
 							<div class="flex h-[300px] items-end">
 								<img src="./dist/img/nantunggaputra-background.webp" alt="Nantungga Putra" width="265" class="ease absolute left-1/2 mx-auto w-[265px] max-w-full -translate-x-1/2 opacity-100 blur-sm transition duration-300 hover:cursor-none hover:blur-0 dark:w-0 dark:opacity-25" />
@@ -415,7 +428,8 @@
 					<div id="project-based" class="mb-12 p-4 md:w-1/2">
 						<div class="overflow-hidden rounded-lg shadow-md">
 							<img src="./dist/img/portfolio/Project-Based Internship & Freelance.webp" alt="Project-Based" title="Project-Based" width="w-full" />
-							<div class="flex flex-nowrap justify-end bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
+							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
+								<span class="ease donations-link cursor-pointer text-neutral-600 transition duration-300 hover:text-neutral-400" title="https://contra.com/nantungga_putra_f5y67v1g">&#123; &#125;</span>
 								<p>🚀 On Going</p>
 							</div>
 						</div>
@@ -927,7 +941,7 @@
 							<textarea name="message" id="message" name="message" required class="mt-1 h-24 w-full rounded-md bg-neutral-200 p-2 text-sm text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:bg-white dark:focus:border-secondary dark:focus:ring-secondary"></textarea>
 						</div>
 						<div class="w-full px-4">
-							<button type="submit" class="ease w-full rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-third hover:bg-third hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-third dark:hover:bg-third">Send</button>
+							<button type="submit" class="ease w-full rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-third hover:bg-third hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-third dark:hover:bg-third dark:hover:shadow-lg">Send</button>
 						</div>
 					</form>
 				</div>
@@ -951,7 +965,7 @@
 						</div>
 					</div>
 					<div class="hidden w-full px-4">
-						<button id="reset" class="ease hidden w-full rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-red-600 hover:bg-red-600 hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-red-600 dark:hover:bg-red-600">Reset</button>
+						<button id="reset" class="ease hidden w-full rounded-full border border-solid border-primary bg-primary px-5 py-2 font-sans text-base font-semibold text-white transition duration-300 hover:border-red-600 hover:bg-red-600 hover:shadow-lg dark:border-secondary dark:bg-secondary dark:hover:border-red-600 dark:hover:bg-red-600 dark:hover:shadow-lg">Reset</button>
 					</div>
 				</div>
 			</div>

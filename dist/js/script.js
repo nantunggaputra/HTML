@@ -17,12 +17,12 @@ hamburger.addEventListener("click", function () {
 	navMenu.classList.toggle("hidden");
 });
 
-// dark_mode
-if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-	document.documentElement.classList.add("dark");
-} else {
-	document.documentElement.classList.remove("dark");
-}
+// // dark_mode
+// if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+// 	document.documentElement.classList.add("dark");
+// } else {
+// 	document.documentElement.classList.remove("dark");
+// }
 
 // darktoggle
 const darkModeToggle = document.querySelector("#darktoggle");
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	donationsLinks.forEach((donationsLink) => {
 		donationsLink.addEventListener("click", function (event) {
 			event.preventDefault();
-			window.open("https://trakteer.id/nantunggaputra", "_blank");
+			window.open("https://rebrand.ly/nantunggaputra-on-trakteer", "_blank");
 			setTimeout(() => {
 				window.location.href = donationsLink.getAttribute("title");
 			}, 100);
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const donationLink = document.querySelector(".donation");
 	donationLink.addEventListener("click", function (event) {
 		event.preventDefault();
-		window.open("https://trakteer.id/nantunggaputra", "_blank");
+		window.open("https://rebrand.ly/nantunggaputra-on-trakteer", "_blank");
 	});
 });
 
