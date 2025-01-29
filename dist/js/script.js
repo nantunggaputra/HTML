@@ -264,6 +264,7 @@ window.addEventListener("scroll", function () {
 	const audioButton1 = document.getElementById("playAudioButton1");
 	const audioButton2 = document.getElementById("playAudioButton2");
 	const donationButton = document.getElementById("donation");
+	const qnaButton = document.getElementById("qna");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
@@ -272,10 +273,12 @@ window.addEventListener("scroll", function () {
 		audioButton1.style.display = "none";
 		audioButton2.style.display = "none";
 		donationButton.style.display = "none";
+		qnaButton.style.display = "none";
 	} else {
 		goToBottom.style.display = "";
 		audioButton1.style.display = "";
 		audioButton2.style.display = "";
 		donationButton.style.display = "";
+		qnaButton.style.display = "";
 	}
 });
