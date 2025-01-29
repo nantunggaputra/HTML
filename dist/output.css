@@ -821,6 +821,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-\[14px\] {
+  margin-bottom: 14px;
+}
+
 .block {
   display: block;
 }
@@ -1000,6 +1004,11 @@ video {
 
 .gap-y-\[14px\] {
   row-gap: 14px;
+}
+
+.gap-x-\[14px\] {
+  -moz-column-gap: 14px;
+       column-gap: 14px;
 }
 
 .self-end {
@@ -1275,6 +1284,10 @@ video {
 
 .pt-px {
   padding-top: 1px;
+}
+
+.pb-\[14px\] {
+  padding-bottom: 14px;
 }
 
 .text-center {
