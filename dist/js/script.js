@@ -265,6 +265,8 @@ window.addEventListener("scroll", function () {
 	const audioButton2 = document.getElementById("playAudioButton2");
 	const donationButton = document.getElementById("donation");
 	const qnaButton = document.getElementById("qna");
+	const fewdfButton = document.getElementById("fewdf");
+	const fewctButton = document.getElementById("fewct");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
@@ -274,11 +276,15 @@ window.addEventListener("scroll", function () {
 		audioButton2.style.display = "none";
 		donationButton.style.display = "none";
 		qnaButton.style.display = "none";
+		fewdfButton.style.display = "none";
+		fewctButton.style.display = "none";
 	} else {
 		goToBottom.style.display = "";
 		audioButton1.style.display = "";
 		audioButton2.style.display = "";
 		donationButton.style.display = "";
 		qnaButton.style.display = "";
+		fewdfButton.style.display = "";
+		fewctButton.style.display = "";
 	}
 });
