@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+Sitemap: https://nantunggaputra.github.io/HTML/sitemap.xml
