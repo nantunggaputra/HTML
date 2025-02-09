@@ -288,3 +288,12 @@ window.addEventListener("scroll", function () {
 		fewctButton.style.display = "";
 	}
 });
+
+// for_develovers
+console.log("---");
+console.log("Hi Develovers!");
+console.log("Every programmer is an author.");
+console.log("Programming isn't about what you know; it's about what you can figure out.");
+console.log("If debugging is the process of removing software bugs, then programming must be the process of putting them in.");
+console.log("I am Nantungga Putra, a Front-End Web Developer, the developer of this website. Thank you for exploring my website. I hope the provided information offers valuable insights. Let's work together on innovative technology solutions!");
+console.log("---");
