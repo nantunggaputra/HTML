@@ -594,6 +594,10 @@ video {
   position: relative;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .-bottom-44 {
   bottom: -11rem;
 }
@@ -877,6 +881,14 @@ video {
   height: 13rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
+.h-72 {
+  height: 18rem;
+}
+
 .h-9 {
   height: 2.25rem;
 }
@@ -893,12 +905,28 @@ video {
   width: 0px;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-4 {
   width: 1rem;
 }
 
+.w-64 {
+  width: 16rem;
+}
+
+.w-72 {
+  width: 18rem;
+}
+
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[200\%\] {
+  width: 200%;
 }
 
 .w-\[265px\] {
@@ -907,23 +935,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-max {
-  width: -moz-max-content;
-  width: max-content;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
-.w-1\/2 {
-  width: 50%;
-}
-
-.w-\[200\%\] {
-  width: 200%;
 }
 
 .max-w-2xl {
@@ -999,6 +1010,38 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes waterdrop {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-waterdrop {
+  animation: waterdrop 2s ease-out infinite;
+}
+
+@keyframes waterdrop {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-waterdropDelay {
+  animation: waterdrop 3s ease-out infinite 1.5s;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1053,10 +1096,6 @@ video {
 
 .overflow-y-hidden {
   overflow-y: hidden;
-}
-
-.overflow-x-scroll {
-  overflow-x: scroll;
 }
 
 .truncate {
@@ -1130,6 +1169,11 @@ video {
 .bg-neutral-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
+
+.bg-neutral-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
 .bg-neutral-900 {
@@ -1461,16 +1505,20 @@ video {
   text-decoration-line: line-through;
 }
 
-.opacity-0 {
-  opacity: 0;
-}
-
 .opacity-100 {
   opacity: 1;
 }
 
+.opacity-20 {
+  opacity: 0.2;
+}
+
 .opacity-25 {
   opacity: 0.25;
+}
+
+.opacity-5 {
+  opacity: 0.05;
 }
 
 .opacity-60 {
@@ -2019,6 +2067,11 @@ body.bluelightfilter:before {
 :is(.dark .dark\:bg-neutral-600) {
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-neutral-800) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:bg-neutral-900) {

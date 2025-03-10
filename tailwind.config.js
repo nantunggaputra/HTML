@@ -16,7 +16,17 @@ module.exports = {
       },
       screens: {
         '2xl': '1320px'
-      }
+      },
+      keyframes: {
+        waterdrop: {
+          '0%': { transform: 'scale(0)', opacity: '0.3' },
+          '100%': { transform: 'scale(3)', opacity: '0' },
+        }
+      },
+      animation: {
+        waterdrop: 'waterdrop 2s ease-out infinite',
+        waterdropDelay: 'waterdrop 3s ease-out infinite 1.5s',
+      },
     },
   },
   plugins: [],
