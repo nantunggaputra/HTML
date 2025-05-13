@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // tobottom
 window.addEventListener("scroll", function () {
+	const goToTop = document.getElementById("totop");
 	const goToBottom = document.getElementById("tobottom");
 	const audioButton1 = document.getElementById("playAudioButton1");
 	const audioButton2 = document.getElementById("playAudioButton2");
@@ -282,6 +283,11 @@ window.addEventListener("scroll", function () {
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
 	const documentHeight = document.documentElement.scrollHeight;
+	if (scrollPosition + viewportHeight <= 2000) {
+		goToTop.style.display = "";
+	} else {
+		goToTop.style.display = "flex";
+	}
 	if (scrollPosition + viewportHeight >= documentHeight - 200) {
 		goToBottom.style.display = "none";
 		audioButton1.style.display = "none";

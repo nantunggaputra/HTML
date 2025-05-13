@@ -255,3 +255,36 @@ body.bluelightfilter:before {
 		color: inherit;
 	}
 }
+
+.img-fade {
+	animation: fadeToggle 6s infinite;
+}
+
+@keyframes fadeToggle {
+	0%,
+	45% {
+		opacity: 1;
+		z-index: 20;
+	}
+	50%,
+	95% {
+		opacity: 0;
+		z-index: 0;
+	}
+	100% {
+		opacity: 1;
+		z-index: 20;
+	}
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background-color: #d4d4d4;
+}
+
+.custom-scrollbar {
+	scrollbar-color: #d4d4d4 transparent;
+}
