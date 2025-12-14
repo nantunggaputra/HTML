@@ -278,7 +278,8 @@ window.addEventListener("scroll", function () {
 	const audioButton2 = document.getElementById("playAudioButton2");
 	const donationButton = document.getElementById("donation");
 	const qnaButton = document.getElementById("qna");
-	const fewdfButton = document.getElementById("fewdf");
+	const fewdf1Button = document.getElementById("fewdf1");
+	const fewdf2Button = document.getElementById("fewdf2");
 	const fewctButton = document.getElementById("fewct");
 	const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 	const viewportHeight = document.documentElement.clientHeight;
@@ -294,7 +295,8 @@ window.addEventListener("scroll", function () {
 		audioButton2.style.display = "none";
 		donationButton.style.display = "none";
 		qnaButton.style.display = "none";
-		fewdfButton.style.display = "none";
+		fewdf1Button.style.display = "none";
+		fewdf2Button.style.display = "none";
 		fewctButton.style.display = "none";
 	} else {
 		goToBottom.style.display = "";
@@ -302,7 +304,8 @@ window.addEventListener("scroll", function () {
 		audioButton2.style.display = "";
 		donationButton.style.display = "";
 		qnaButton.style.display = "";
-		fewdfButton.style.display = "";
+		fewdf1Button.style.display = "";
+		fewdf2Button.style.display = "";
 		fewctButton.style.display = "";
 	}
 });
