@@ -261,6 +261,12 @@ resetButton.addEventListener("click", () => {
 	counterContainer.innerHTML = visitCount;
 });
 
+// copyright_year
+const copyrightYear = document.getElementById("current-year");
+if (copyrightYear) {
+	copyrightYear.textContent = new Date().getFullYear();
+}
+
 // donation
 document.addEventListener("DOMContentLoaded", function () {
 	const donationLink = document.querySelector(".donation");
