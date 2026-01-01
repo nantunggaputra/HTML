@@ -157,6 +157,32 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
+// blog_switch_tab
+function switchTab(tab) {
+	const btnOtaku = document.getElementById("btn-otaku");
+	const btnTech = document.getElementById("btn-tech");
+	const contentOtaku = document.getElementById("content-otaku");
+	const contentTech = document.getElementById("content-tech");
+	const description = document.getElementById("blog-description");
+	if (tab === "otaku") {
+		btnOtaku.classList.add("active");
+		btnTech.classList.remove("active");
+		contentOtaku.classList.remove("hidden");
+		contentOtaku.classList.add("flex");
+		contentTech.classList.remove("flex");
+		contentTech.classList.add("hidden");
+		description.textContent = "This line contains someone's writing/scribbles on my blog about Ending Detective Conan fanfiction.";
+	} else if (tab === "tech") {
+		btnTech.classList.add("active");
+		btnOtaku.classList.remove("active");
+		contentTech.classList.remove("hidden");
+		contentTech.classList.add("flex");
+		contentOtaku.classList.remove("flex");
+		contentOtaku.classList.add("hidden");
+		description.textContent = "This section features my posts on my blog about Website and Web App Technologies article.";
+	}
+}
+
 // audio_source
 const audioSource = document.querySelectorAll("audio");
 audioSource.forEach((audio) => {

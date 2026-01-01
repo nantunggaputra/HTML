@@ -1059,12 +1059,21 @@
 				<path d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z" />
 			</svg>
 			<div class="relative z-10 w-full px-4">
-				<div class="mx-auto mb-16 max-w-xl text-center">
+				<div class="mx-auto mb-10 max-w-xl text-center">
 					<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Blog</h4>
 					<h2 class="mb-4 text-3xl font-bold text-dark dark:text-white lg:text-4xl">Last Scribbles</h2>
-					<p class="text-base font-medium text-neutral-500 dark:text-neutral-300 md:text-lg">This line contains someone's writing/scribbles on my blog about Ending Detective Conan fanfiction.</p>
+					<p id="blog-description" class="text-base font-medium text-neutral-500 dark:text-neutral-300 md:text-lg">This line contains someone's writing/scribbles on my blog about Ending Detective Conan fanfiction.</p>
 				</div>
-				<div class="flex flex-wrap justify-center">
+
+				<!-- Nav_Blog_Menu -->
+				<div class="mx-auto mb-12 flex justify-center gap-2">
+					<button id="btn-otaku" class="nav-btn active rounded-lg px-6 py-2.5 font-semibold transition-all duration-300 ease-in-out" onclick="switchTab('otaku')">Otaku-guy</button>
+					<span class="flex items-center text-2xl font-light text-neutral-400 dark:text-neutral-400">|</span>
+					<button id="btn-tech" class="nav-btn rounded-lg px-6 py-2.5 font-semibold transition-all duration-300 ease-in-out" onclick="switchTab('tech')">Tech-bro</button>
+				</div>
+
+				<!-- Otaku_Blog_Content -->
+				<div id="content-otaku" class="content-section flex flex-wrap justify-center">
 					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
 						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md transition duration-300 hover:shadow-lg dark:bg-dark">
 							<img src="./dist/img/blog/DC_Novel_Sisa_Masa_Lalu_pt_1.webp" alt="image scene fiction" title="Sisa Masa Lalu - Ending Detective Conan fanfiction" class="h-52 w-full object-cover" />
@@ -1075,8 +1084,8 @@
 								<p class="mb-2 text-justify font-serif dark:text-white">Matahari bersinar terik siang itu, di SMU Teitan. Hari itu adalah hari terakhir mereka sebelum liburan musim panas tiba. Meskipun begitu, para guru tetap bertekad memberikan pelajaran sampai bel berbunyi, mengabaikan keluh kesah para murid. Ai Haibara memandang keluar melewati jendela kelasnya, pikirannya menerawang ke tempat lain, atau lebih tepatnya, ke waktu tertentu.</p>
 								<p class="mb-2 text-justify font-serif italic dark:text-white">Sudah sepuluh tahun berlalu… semenjak hari itu, ya?</p>
 								<p class="mb-2 text-justify font-serif underline dark:text-white">Flashback</p>
-								<p class="mb-6 text-justify font-serif dark:text-white"><span class="italic">“Conan!!!”</span> teriak Ayumi di sampingnya, histeris. Ia memeluk erat-erat gadis kecil itu, demikian juga dengan Genta dan Mitsuhiko. Toh, hanya merekalah yang tersisa dari Grup Detektif Cilik.</p>
-								<a href="#blog-pt-1" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
+								<p class="mb-6 text-justify font-serif dark:text-white"><span class="italic">"Conan!!!"</span> teriak Ayumi di sampingnya, histeris. Ia memeluk erat-erat gadis kecil itu, demikian juga dengan Genta dan Mitsuhiko. Toh, hanya merekalah yang tersisa dari Grup Detektif Cilik.</p>
+								<a href="#blog-pt-1" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more... (unavailable)</a>
 							</div>
 						</div>
 					</div>
@@ -1088,22 +1097,22 @@
 									<a href="#blog-pt-2" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">Pilihan dengan penderitaan yang terkecil</a>
 								</h3>
 								<p class="mb-2 text-justify font-serif dark:text-white">PRANG!!! Ai melemparkan botol tersebut keluar jendela, dan benda itu jatuh berkeping-keping di atas tanah. Shinichi memandangnya tidak percaya.</p>
-								<p class="mb-2 text-justify font-serif italic dark:text-white">“Kau...”</p>
+								<p class="mb-2 text-justify font-serif italic dark:text-white">"Kau..."</p>
 								<p class="mb-2 text-justify font-serif italic dark:text-white">
-									“Conan Edogawa sudah
-									<span class="line-through">mati</span> hari ini, demikian juga dengan Shiho Miyano, yang tersisa adalah Shinichi Kudo dan Ai Haibara.”
+									"Conan Edogawa sudah
+									<span class="line-through">mati</span> hari ini, demikian juga dengan Shiho Miyano, yang tersisa adalah Shinichi Kudo dan Ai Haibara."
 									<span class="not-italic">gadis berambut cokelat itu tersenyum, ekspresinya penuh keyakinan.</span>
 								</p>
 								<p class="mb-2 text-justify font-serif dark:text-white">Shinichi memandangnya, balas tersenyum.</p>
 								<p class="mb-2 text-justify font-serif italic dark:text-white">
-									“Jadi ini pilihanmu? Kalau begitu, selamat mengerjakan tugas-tugas anak SD.”
+									"Jadi ini pilihanmu? Kalau begitu, selamat mengerjakan tugas-tugas anak SD."
 									<span class="not-italic">dia berkata sambil bercanda.</span>
 								</p>
 								<p class="mb-6 text-justify font-serif italic dark:text-white">
-									“Aku akan berusaha supaya tidak terlalu menonjol di kelas,”
-									<span class="not-italic">kata Ai,</span> “anak-anak itu sudah kehilangan kau, tahu, aku tidak akan membiarkan mereka kehilangan seorang lagi.”
+									"Aku akan berusaha supaya tidak terlalu menonjol di kelas,"
+									<span class="not-italic">kata Ai,</span> "anak-anak itu sudah kehilangan kau, tahu, aku tidak akan membiarkan mereka kehilangan seorang lagi."
 								</p>
-								<a href="#blog-pt-2" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
+								<a href="#blog-pt-2" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more... (unavailable)</a>
 							</div>
 						</div>
 					</div>
@@ -1116,12 +1125,69 @@
 								</h3>
 								<p class="mb-2 text-justify font-serif dark:text-white">Langit sudah semakin senja, dan burung-burung beterbangan kembali ke sarang masing-masing. Ai masih belum kembali.</p>
 								<p class="mb-2 text-justify font-serif italic dark:text-white">
-									“Ai lama sekali,”
-									<span class="not-italic">kata Ayumi,</span> “bus terakhir akan berangkat tidak lama lagi, bagaimana kalau terlewat?”
+									"Ai lama sekali,"
+									<span class="not-italic">kata Ayumi,</span> "bus terakhir akan berangkat tidak lama lagi, bagaimana kalau terlewat?"
 								</p>
-								<p class="mb-2 text-justify font-serif dark:text-white"><span class="italic">“Akan kucari dia,”</span> Mitsuhiko menawarkan diri. Sebelum teman-temannya sempat memprotes, dia sudah beranjak pergi terlebih dahulu, meskipun, dia tidak punya ide ke mana harus mencari gadis berambut cokelat tersebut.</p>
+								<p class="mb-2 text-justify font-serif dark:text-white"><span class="italic">"Akan kucari dia,"</span> Mitsuhiko menawarkan diri. Sebelum teman-temannya sempat memprotes, dia sudah beranjak pergi terlebih dahulu, meskipun, dia tidak punya ide ke mana harus mencari gadis berambut cokelat tersebut.</p>
 								<p class="mb-6 text-justify font-serif dark:text-white">Ai Haibara. Gadis itu selalu menghilang setiap kali mereka melakukan kunjungan ke makam Conan, meskipun kembali tidak lama kemudian, tanpa memberitahu yang sebenarnya dia lakukan. Jika Ayumi atau Genta terkadang bertanya, ia selalu memberikan jawaban seenaknya. Mitsuhiko mengenalinya semenjak kecil, dan gadis itu selalu dipenuhi rahasia. Dia selalu tampak tenang, dewasa, dan misterius.</p>
-								<a href="#blog-pt-3" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more...</a>
+								<a href="#blog-pt-3" class="ease rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">Read more... (unavailable)</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tech_Blog_Content -->
+				<div id="content-tech" class="content-section hidden flex-wrap justify-center">
+					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md transition duration-300 hover:shadow-lg dark:bg-dark">
+							<img src="./dist/img/blog/tech-article-1.webp" alt="image illustration article" title="Website and Web App Technologies article" class="h-52 w-full object-cover" />
+							<div class="px-6 py-8">
+								<h3>
+									<a href="https://nantunggaputra.blogspot.com/2025/01/whats-difference-between-website-and_24.html" target="_blank" rel="noopener noreferrer" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">What's the Difference Between a Website and a Web App? (Part 1)</a>
+								</h3>
+								<p class="mb-2 text-justify font-serif underline dark:text-white">What is a Website?</p>
+								<p class="mb-6 text-justify font-serif dark:text-white">A website is a collection of interconnected web pages hosted on a server and accessible via the internet. These pages, crafted using web programming languages, serve a variety of purposes, from sharing information and interacting with users to conducting online business. Think of blogs, online stores, and news sites.</p>
+								<a href="https://nantunggaputra.blogspot.com/2025/01/whats-difference-between-website-and_24.html" target="_blank" rel="noopener noreferrer" class="ease inline-flex items-center gap-2 rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">
+									Read more...
+									<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md transition duration-300 hover:shadow-lg dark:bg-dark">
+							<img src="./dist/img/blog/tech-article-2.webp" alt="image illustration article" title="Website and Web App Technologies article" class="h-52 w-full object-cover" />
+							<div class="px-6 py-8">
+								<h3>
+									<a href="https://nantunggaputra.blogspot.com/2025/01/whats-difference-between-website-and_5.html" target="_blank" rel="noopener noreferrer" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">What's the Difference Between a Website and a Web App? (Part 2)</a>
+								</h3>
+								<p class="mb-2 text-justify font-serif underline dark:text-white">What is a Web App?</p>
+								<p class="mb-6 text-justify font-serif dark:text-white">A web app is a software application that runs directly in your web browser. Unlike traditional apps that you need to download and install, web apps are accessible through a URL. Think of interactive features on websites like shopping carts, product searches, contact forms, or even online banking. Web apps enable users to perform complex tasks directly in the browser, such as editing documents, sending messages, or making transactions.</p>
+								<a href="https://nantunggaputra.blogspot.com/2025/01/whats-difference-between-website-and_5.html" target="_blank" rel="noopener noreferrer" class="ease inline-flex items-center gap-2 rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">
+									Read more...
+									<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="w-full max-w-lg px-4 lg:w-2/5 xl:w-1/3">
+						<div class="mb-10 overflow-hidden rounded-lg bg-white shadow-md transition duration-300 hover:shadow-lg dark:bg-dark">
+							<img src="./dist/img/blog/tech-article-3.webp" alt="image illustration article" title="Website and Web App Technologies article" class="h-52 w-full object-cover" />
+							<div class="px-6 py-8">
+								<h3>
+									<a href="https://nantunggaputra.blogspot.com/2025/01/why-websites-and-web-apps-are-essential.html" target="_blank" rel="noopener noreferrer" class="ease mb-3 block truncate font-serif text-xl font-semibold text-dark transition duration-300 hover:text-primary dark:text-white dark:hover:text-secondary">Why Websites and Web Apps are Essential in Modern Life (Part 1)</a>
+								</h3>
+								<p class="mb-6 text-justify font-serif dark:text-white">Websites and web applications play a pivotal role in nearly every aspect of our lives. Whether for personal, professional, or business purposes, these technologies have become the cornerstone of communication, work, learning, and commerce. Here are some key reasons why websites and web applications are so important:</p>
+								<a href="https://nantunggaputra.blogspot.com/2025/01/why-websites-and-web-apps-are-essential.html" target="_blank" rel="noopener noreferrer" class="ease inline-flex items-center gap-2 rounded-lg bg-dark px-4 py-2 font-serif text-sm text-neutral-400 transition duration-300 hover:bg-third hover:text-white hover:shadow-md dark:bg-white dark:text-neutral-700 dark:hover:bg-third dark:hover:text-white">
+									Read more...
+									<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+									</svg>
+								</a>
 							</div>
 						</div>
 					</div>
