@@ -2007,13 +2007,23 @@ body.bluelightfilter:before {
 }
 
 .nav-btn:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn.active {
-  background: #0377b9;
+  background: #036ca8;
   color: white;
-  box-shadow: 0 2px 8px #025585;
+}
+
+:is(.dark .nav-btn.active) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 119 185 / var(--tw-bg-opacity));
+}
+
+.nav-btn.active:hover {
+  background: #025585;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content-section {
