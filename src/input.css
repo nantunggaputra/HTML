@@ -290,6 +290,7 @@ body.bluelightfilter:before {
 .nav-btn.active {
 	background: #036ca8;
 	color: white;
+	box-shadow: none;
 	@apply dark:bg-secondary;
 }
 
