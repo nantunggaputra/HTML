@@ -203,6 +203,50 @@ audioSource.forEach((audio) => {
 	});
 });
 
+// confetti_effect
+function createConfetti(e) {
+	const colors = ["#FF6B6B", "#FFFFFF", "#45B7D1", "#000000", "#98D8C8", "#F7DC6F", "#BB8FCE", "#0377B9"];
+	const confettiCount = 30;
+	const mouseX = e.clientX;
+	const mouseY = e.clientY;
+	for (let i = 0; i < confettiCount; i++) {
+		const confetti = document.createElement("div");
+		confetti.className = "confetti";
+		const randomColor = colors[Math.floor(Math.random() * colors.length)];
+		confetti.style.backgroundColor = randomColor;
+		if (Math.random() > 0.5) {
+			confetti.style.borderRadius = "50%";
+		}
+		confetti.style.left = mouseX + "px";
+		confetti.style.top = mouseY + "px";
+		const angle = (Math.PI * 2 * i) / confettiCount;
+		const velocity = 60 + Math.random() * 40;
+		const tx = Math.cos(angle) * velocity;
+		const ty = Math.sin(angle) * velocity * 1;
+		const rotate = Math.random() * 720 - 360;
+		confetti.style.setProperty("--tx", tx + "px");
+		confetti.style.setProperty("--ty", ty + "px");
+		confetti.style.setProperty("--rotate", rotate + "deg");
+		document.body.appendChild(confetti);
+		setTimeout(() => {
+			confetti.remove();
+		}, 800);
+	}
+}
+let isHovering = false;
+const hoverElements = document.querySelectorAll(".confetti-effect");
+hoverElements.forEach((element) => {
+	element.addEventListener("mouseenter", function (e) {
+		if (!isHovering) {
+			isHovering = true;
+			createConfetti(e);
+		}
+	});
+	element.addEventListener("mouseleave", function () {
+		isHovering = false;
+	});
+});
+
 // input_name
 const inputElement = document.getElementById("name");
 inputElement.addEventListener("input", function () {
