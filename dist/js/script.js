@@ -1,3 +1,15 @@
+// scroll_progress_bar
+const progressBar = document.getElementById("scroll-progress");
+function updateProgressBar() {
+	const windowHeight = window.innerHeight;
+	const documentHeight = document.documentElement.scrollHeight;
+	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+	progressBar.style.width = scrollPercentage + "%";
+}
+window.addEventListener("scroll", updateProgressBar);
+updateProgressBar();
+
 // fixed_navbar
 window.onscroll = function () {
 	const header = document.querySelector("header");

@@ -1727,6 +1727,25 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #036ca8;
+  z-index: 10000;
+  transition: width 0.1s ease-out;
+  box-shadow:
+		0 0 10px #0377b9,
+		0 0 20px #0377b9;
+}
+
+:is(.dark #scroll-progress) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 119 185 / var(--tw-bg-opacity));
+}
+
 .navbar-fixed {
   z-index: 9999;
   box-shadow: inset 0 -1px 0 0 rgba(37, 37, 37, 0.1);
