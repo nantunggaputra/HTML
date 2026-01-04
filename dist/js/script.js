@@ -157,6 +157,69 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
+// carousel_slide
+const track = document.getElementById("carousel-track");
+const carousel = document.getElementById("carousel");
+const dots = document.querySelectorAll(".dot-indicator");
+const totalSlides = 5;
+let currentSlide = 0;
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
+let startTransform = 0;
+function updateCarousel() {
+	const offset = -currentSlide * 100;
+	track.style.transform = `translateX(${offset}%)`;
+	dots.forEach((dot, index) => {
+		if (index === currentSlide) {
+			dot.classList.add("active");
+		} else {
+			dot.classList.remove("active");
+		}
+	});
+}
+function handleStart(e) {
+	isDragging = true;
+	startX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+	startTransform = -currentSlide * carousel.offsetWidth;
+	track.style.transition = "none";
+}
+function handleMove(e) {
+	if (!isDragging) return;
+	e.preventDefault();
+	currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+	const diff = currentX - startX;
+	const newTransform = startTransform + diff;
+	track.style.transform = `translateX(${newTransform}px)`;
+}
+function handleEnd() {
+	if (!isDragging) return;
+	isDragging = false;
+	track.style.transition = "transform 0.3s ease-out";
+	const diff = currentX - startX;
+	const threshold = carousel.offsetWidth * 0.2;
+	if (diff > threshold && currentSlide > 0) {
+		currentSlide--;
+	} else if (diff < -threshold && currentSlide < totalSlides - 1) {
+		currentSlide++;
+	}
+	updateCarousel();
+}
+carousel.addEventListener("mousedown", handleStart);
+carousel.addEventListener("mousemove", handleMove);
+carousel.addEventListener("mouseup", handleEnd);
+carousel.addEventListener("mouseleave", handleEnd);
+carousel.addEventListener("touchstart", handleStart, { passive: true });
+carousel.addEventListener("touchmove", handleMove, { passive: false });
+carousel.addEventListener("touchend", handleEnd);
+dots.forEach((dot, index) => {
+	dot.addEventListener("click", () => {
+		currentSlide = index;
+		updateCarousel();
+	});
+});
+carousel.addEventListener("dragstart", (e) => e.preventDefault());
+
 // blog_switch_tab
 function switchTab(tab) {
 	const btnOtaku = document.getElementById("btn-otaku");

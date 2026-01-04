@@ -634,8 +634,16 @@ video {
   bottom: 0px;
 }
 
+.bottom-16 {
+  bottom: 4rem;
+}
+
 .bottom-4 {
   bottom: 1rem;
+}
+
+.bottom-8 {
+  bottom: 2rem;
 }
 
 .bottom-\[84px\] {
@@ -871,6 +879,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -1084,6 +1096,10 @@ video {
   cursor: pointer;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -1110,6 +1126,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-5 {
@@ -1641,6 +1661,10 @@ video {
   opacity: 0.6;
 }
 
+.opacity-70 {
+  opacity: 0.7;
+}
+
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2000,6 +2024,90 @@ body.bluelightfilter:before {
   }
 }
 
+.carousel-container {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: white;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-out;
+  height: 100%;
+  cursor: grab;
+}
+
+.carousel-track:active {
+  cursor: grabbing;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.quote-text {
+  font-family: "Courier New", Courier, monospace;
+  color: #252525;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.125rem;
+  max-width: 90%;
+}
+
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #acacac;
+  transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+  background: #252525;
+  transform: scale(1.2);
+}
+
+.interaction-icon {
+  width: 28px;
+  height: 28px;
+  color: #252525;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.interaction-icon:hover {
+  color: #036ca8;
+  transform: scale(1.15);
+}
+
+:is(.dark .interaction-icon:hover) {
+  --tw-text-opacity: 1;
+  color: rgb(3 119 185 / var(--tw-text-opacity));
+}
+
+.interaction-icon.love-icon:hover {
+  color: rgb(245, 26, 26);
+  transform: scale(1.5);
+}
+
+.interaction-count {
+  font-size: 0.75rem;
+  color: #252525;
+  margin-top: 0.25rem;
+}
+
 .nav-btn {
   background: white;
   color: #252525;
@@ -2334,6 +2442,11 @@ body.bluelightfilter:before {
 :is(.dark .dark\:bg-neutral-600) {
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-neutral-700) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(64 64 64 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:bg-neutral-800) {
