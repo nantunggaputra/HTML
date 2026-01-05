@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const track = document.getElementById("carousel-track");
 const carousel = document.getElementById("carousel");
 const dots = document.querySelectorAll(".dot-indicator");
-const totalSlides = 5;
+const totalSlides = 6;
 let currentSlide = 0;
 let startX = 0;
 let currentX = 0;
