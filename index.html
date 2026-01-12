@@ -10,6 +10,7 @@
 		<meta property="og:image" content="./dist/img/nantunggaputra-background.webp" />
 		<meta property="og:url" content="https://nantunggaputra.github.io/HTML" />
 		<meta name="twitter:card" content="Homepage Portfolio | Nantungga Putra | Front End Web Developer | React js | Learning and Implementing Website and Web App Technologies" />
+		<link href="https://nantunggaputra.github.io/HTML" rel="canonical" />
 		<link href="./dist/build.css" rel="stylesheet" />
 
 		<!-- Dark_Mode -->
@@ -266,14 +267,23 @@
 		<section id="portfolio" class="bg-gradient-to-b from-neutral-100 to-neutral-200 pb-16 pt-36 dark:from-neutral-900 dark:to-neutral-700">
 			<div class="container">
 				<div class="w-full px-4">
-					<div class="mx-auto mb-16 max-w-xl text-center">
+					<div class="mx-auto mb-10 max-w-xl text-center">
 						<h4 class="mb-2 text-lg font-semibold text-primary dark:text-secondary">Portfolio</h4>
 						<h2 class="mb-4 text-3xl font-bold text-dark dark:text-white lg:text-4xl">Recent Projects</h2>
 						<p class="text-base font-medium text-neutral-500 dark:text-neutral-400 md:text-lg">This section features my latest projects around the front-end web development from several online courses including programming tech influencers.</p>
 					</div>
 				</div>
-				<div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-11/12">
-					<div id="ecommerce" class="mb-12 p-4 md:w-1/2">
+
+				<!-- Sort_Tab_Menu -->
+				<div class="mx-auto mb-12 flex justify-center gap-2 px-4">
+					<button id="btn-oldest" class="nav-btn active rounded-lg px-6 py-2.5 font-semibold transition-all duration-300 ease-in-out" onclick="sortPortfolio('oldest')">Oldest</button>
+					<span class="flex items-center text-2xl font-light text-neutral-400 dark:text-neutral-400">|</span>
+					<button id="btn-newest" class="nav-btn rounded-lg px-6 py-2.5 font-semibold transition-all duration-300 ease-in-out" onclick="sortPortfolio('newest')">Newest</button>
+				</div>
+
+				<!-- Portfolio -->
+				<div id="portfolio-grid" class="portfolio-section flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-11/12">
+					<div id="ecommerce" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2023-12">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Kedai Teh Solo Gen-Z.webp" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -291,7 +301,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML & CSS dari 0 + Autodeploy ke WEB HOSTING" - "Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML, CSS & JavaScript"</p>
 					</div>
-					<div class="mb-12 p-4 md:w-1/2">
+					<div class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2023-12">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Adlan Muslim.webp" alt="E-Commerce Webpage" title="E-Commerce Webpage" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -309,7 +319,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat WEBSITE RESPONSIVE menggunakan CSS GRID"</p>
 					</div>
-					<div id="personalportfolio" class="mb-12 p-4 md:w-1/2">
+					<div id="personalportfolio" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-02">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Personal Portfolio.webp" alt="Personal Portfolio Webpage" title="Personal Portfolio Webpage" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -326,7 +336,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
-					<div id="surveyform" class="mb-12 p-4 md:w-1/2">
+					<div id="surveyform" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-02">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/freeCodeCamp Survey Form.webp" alt="Survey Form" title="Survey Form" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -343,7 +353,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
-					<div id="tributepage" class="mb-12 p-4 md:w-1/2">
+					<div id="tributepage" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-02">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Biografi Ir. Soekarno.webp" alt="Tribute Page" title="Tribute Page" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -360,7 +370,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
-					<div id="documentationpage" class="mb-12 p-4 md:w-1/2">
+					<div id="documentationpage" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-02">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/JavaScript Classes.webp" alt="Technical Documentation Page" title="Technical Documentation Page" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -377,7 +387,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
-					<div id="landingpage" class="mb-12 p-4 md:w-1/2">
+					<div id="landingpage" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-02">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Original Flutes.webp" alt="Product Landing Page" title="Product Landing Page" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -394,7 +404,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Responsive Web Design freeCodeCamp learn the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design</p>
 					</div>
-					<div id="homepage" class="mb-12 p-4 md:w-1/2">
+					<div id="homepage" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-03">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Homepage Portfolio.webp" alt="Homepage Portfolio" title="Homepage Portfolio" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -413,7 +423,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS "Membuat Website Portfolio Menggunakan TAILWIND CSS 3"</p>
 					</div>
-					<div id="calculator" class="mb-12 p-4 md:w-1/2">
+					<div id="calculator" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-03">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Mini Project Calculator.webp" alt="Calculator" title="Calculator" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -431,7 +441,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Materi ini akan membawa kita dalam melakukan sebuah mini project. Pada materi ini, kita akan belajar langkah demi langkah untuk membuat calculator dengan menerapkan JavaScript.</p>
 					</div>
-					<div id="weatherapp" class="mb-12 p-4 md:w-1/2">
+					<div id="weatherapp" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-03">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Simple Weather App.webp" alt="Weather App" title="Weather App" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -450,7 +460,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Learn How to Make Weather App using JavaScript Step by Step Explained | Create Weather App in HTML CSS and JavaScript</p>
 					</div>
-					<div id="tictactoe" class="mb-12 p-4 md:w-1/2">
+					<div id="tictactoe" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-04">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Tic Tac Toe.webp" alt="Tic Tac Toe" title="Tic Tac Toe" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -469,7 +479,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS Tutorial REACT "Paling Masuk Akal" untuk PEMULA</p>
 					</div>
-					<div id="shoppinglist" class="mb-12 p-4 md:w-1/2">
+					<div id="shoppinglist" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-04">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Shopping List.webp" alt="Shopping List" title="Shopping List" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -488,7 +498,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">NGOBAR: NGoding BAReng YouTube Web Programming UNPAS Tutorial REACT "Paling Masuk Akal" untuk PEMULA</p>
 					</div>
-					<div id="reactportfolio" class="mb-12 p-4 md:w-1/2">
+					<div id="reactportfolio" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-05">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/React Portfolio.webp" alt="React Portfolio" title="React Portfolio" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -507,7 +517,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">Kali ini kita akan belajar dalam membuat sebuah portfolio yang menggunakan react di bagian header, about, contact, resume, project, dan bagian akhir halaman.</p>
 					</div>
-					<div id="weeboo" class="mb-12 p-4 md:w-1/2">
+					<div id="weeboo" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2024-08">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<div class="relative w-full">
 								<div class="flex flex-nowrap">
@@ -531,7 +541,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">WeeBoo | My Anime List is a Front-End SPA (Single Page Application) Web project built using React to display a list of anime. This project uses Vite for bundling and Visual Studio Code as the code editor. Mostly anime data is fetched from the Jikan - Unofficial MyAnimeList API.</p>
 					</div>
-					<div id="private" class="mb-12 p-4 md:w-1/2">
+					<div id="private" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2026-01">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Private Mentorship.webp" alt="Private" title="Private" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -552,7 +562,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">I am passionate about teaching and guiding students how to create websites, from the basics to advanced levels, and providing a step-by-step learning path that helps them develop their programming skills gradually.</p>
 					</div>
-					<div id="project-based" class="mb-12 p-4 md:w-1/2">
+					<div id="project-based" class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2026-01">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Project-Based Internship & Freelance ID.webp" alt="Project-Based" title="Project-Based" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">
@@ -576,7 +586,7 @@
 						</p>
 						<p class="text-justify text-sm font-medium text-neutral-500 dark:text-neutral-400">I am passionate about contributing and working in companies where I can apply my skills in front-end web development to the digitalization of the industry and from my programming activities to gain additional knowledge.</p>
 					</div>
-					<div class="mb-12 p-4 md:w-1/2">
+					<div class="portfolio-item mb-12 p-4 md:w-1/2" data-date="2026-01">
 						<div class="overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-lg">
 							<img loading="lazy" decoding="async" src="./dist/img/portfolio/Project-Based Internship & Freelance EN.webp" alt="Project-Based" title="Project-Based" width="w-full" />
 							<div class="flex flex-nowrap justify-between bg-neutral-900 p-2 text-right text-sm font-medium text-neutral-400">

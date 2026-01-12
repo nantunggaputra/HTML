@@ -157,6 +157,37 @@ document.addEventListener("DOMContentLoaded", function () {
 // 	});
 // });
 
+// portfolio_switch_tab
+function sortPortfolio(order) {
+	const btnOldest = document.getElementById("btn-oldest");
+	const btnNewest = document.getElementById("btn-newest");
+	const portfolioGrid = document.getElementById("portfolio-grid");
+	const items = Array.from(document.querySelectorAll(".portfolio-item"));
+	if (order === "oldest") {
+		btnOldest.classList.add("active");
+		btnNewest.classList.remove("active");
+	} else {
+		btnNewest.classList.add("active");
+		btnOldest.classList.remove("active");
+	}
+	items.sort((a, b) => {
+		const dateA = a.getAttribute("data-date");
+		const dateB = b.getAttribute("data-date");
+		if (order === "oldest") {
+			return dateA.localeCompare(dateB);
+		} else {
+			return dateB.localeCompare(dateA);
+		}
+	});
+	portfolioGrid.style.opacity = "0";
+	setTimeout(() => {
+		items.forEach((item) => {
+			portfolioGrid.appendChild(item);
+		});
+		portfolioGrid.style.opacity = "1";
+	}, 300);
+}
+
 // faq_toggle
 document.addEventListener("DOMContentLoaded", function () {
 	const faqItems = document.querySelectorAll(".faq-item");

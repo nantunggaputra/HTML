@@ -2043,6 +2043,11 @@ body.bluelightfilter:before {
   }
 }
 
+.portfolio-section {
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
 .carousel-container {
   position: relative;
   aspect-ratio: 9 / 16;
