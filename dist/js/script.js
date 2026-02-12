@@ -482,7 +482,17 @@ function incrementLocal() {
 	return count;
 }
 function formatNumber(number) {
-	return new Intl.NumberFormat().format(number);
+	const abs = Math.abs(number);
+	if (abs < 10_000) {
+		return new Intl.NumberFormat().format(number);
+	}
+	if (abs >= 1_000_000_000) {
+		return (number / 1_000_000_000).toFixed(1).replace(/\.0$/, "") + "B";
+	}
+	if (abs >= 1_000_000) {
+		return (number / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+	}
+	return (number / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
 }
 if (resetButton) {
 	resetButton.addEventListener("click", () => {
