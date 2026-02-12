@@ -2122,7 +2122,7 @@ body.bluelightfilter:before {
 }
 
 .interaction-icon.love-icon:hover {
-  color: rgb(245, 26, 26);
+  color: #f51a1a;
   transform: scale(1.5);
 }
 
@@ -2130,6 +2130,10 @@ body.bluelightfilter:before {
   font-size: 0.75rem;
   color: #252525;
   margin-top: 0.25rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .nav-btn {

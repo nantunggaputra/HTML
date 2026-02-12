@@ -207,38 +207,49 @@ const dots = document.querySelectorAll(".dot-indicator");
 const totalSlides = 6;
 let currentSlide = 0;
 let startX = 0;
+let startY = 0;
 let currentX = 0;
 let isDragging = false;
+let isHorizontal = null;
 let startTransform = 0;
 function updateCarousel() {
 	const offset = -currentSlide * 100;
 	track.style.transform = `translateX(${offset}%)`;
-	dots.forEach((dot, index) => {
-		if (index === currentSlide) {
-			dot.classList.add("active");
-		} else {
-			dot.classList.remove("active");
-		}
+	dots.forEach((dot, i) => {
+		dot.classList.toggle("active", i === currentSlide);
 	});
 }
 function handleStart(e) {
 	isDragging = true;
+	isHorizontal = null;
 	startX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+	startY = e.type.includes("mouse") ? e.pageY : e.touches[0].pageY;
 	startTransform = -currentSlide * carousel.offsetWidth;
 	track.style.transition = "none";
 }
 function handleMove(e) {
 	if (!isDragging) return;
+	const x = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+	const y = e.type.includes("mouse") ? e.pageY : e.touches[0].pageY;
+	const diffX = x - startX;
+	const diffY = y - startY;
+	if (isHorizontal === null) {
+		if (Math.abs(diffX) < 5 && Math.abs(diffY) < 5) return;
+		isHorizontal = Math.abs(diffX) > Math.abs(diffY);
+	}
+	if (!isHorizontal) return;
 	e.preventDefault();
-	currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
-	const diff = currentX - startX;
-	const newTransform = startTransform + diff;
-	track.style.transform = `translateX(${newTransform}px)`;
+	currentX = x;
+	track.style.transform = `translateX(${startTransform + diffX}px)`;
 }
 function handleEnd() {
 	if (!isDragging) return;
 	isDragging = false;
 	track.style.transition = "transform 0.3s ease-out";
+	if (!isHorizontal) {
+		updateCarousel();
+		return;
+	}
 	const diff = currentX - startX;
 	const threshold = carousel.offsetWidth * 0.2;
 	if (diff > threshold && currentSlide > 0) {
@@ -255,9 +266,9 @@ carousel.addEventListener("mouseleave", handleEnd);
 carousel.addEventListener("touchstart", handleStart, { passive: true });
 carousel.addEventListener("touchmove", handleMove, { passive: false });
 carousel.addEventListener("touchend", handleEnd);
-dots.forEach((dot, index) => {
+dots.forEach((dot, i) => {
 	dot.addEventListener("click", () => {
-		currentSlide = index;
+		currentSlide = i;
 		updateCarousel();
 	});
 });
