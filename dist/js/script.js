@@ -434,22 +434,62 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 });
 
 // visitor_counter
-var counterContainer = document.querySelector(".website-counter");
-var resetButton = document.querySelector("#reset");
-var visitCount = localStorage.getItem("page_view");
-if (visitCount) {
-	visitCount = Number(visitCount) + 1;
-	localStorage.setItem("page_view", visitCount);
+const FUNCTION_URL = "https://klxxsjgnqpwfqudytlnm.supabase.co/functions/v1/increment-counter";
+const LOCAL_KEY = "page_view";
+const counterContainer = document.querySelector(".website-counter");
+const resetButton = document.querySelector("#reset");
+if (!counterContainer) {
+	console.warn("Counter element not found.");
 } else {
-	visitCount = 1;
-	localStorage.setItem("page_view", 1);
+	initCounter();
 }
-counterContainer.innerHTML = visitCount;
-resetButton.addEventListener("click", () => {
-	visitCount = 1;
-	localStorage.setItem("page_view", 1);
-	counterContainer.innerHTML = visitCount;
-});
+async function initCounter() {
+	const serverCount = await incrementFromServer();
+	if (serverCount !== null) {
+		counterContainer.textContent = formatNumber(serverCount);
+	} else {
+		const localCount = incrementLocal();
+		counterContainer.textContent = formatNumber(localCount);
+	}
+}
+async function incrementFromServer() {
+	try {
+		const response = await fetch(FUNCTION_URL, {
+			method: "POST",
+		});
+		if (!response.ok) {
+			throw new Error("Server response not OK");
+		}
+		const data = await response.json();
+		if (typeof data !== "number") {
+			throw new Error("Invalid server response");
+		}
+		return data;
+	} catch (error) {
+		console.warn("Server unavailable, fallback to local.", error);
+		return null;
+	}
+}
+const BASE_COUNT = 2023;
+function incrementLocal() {
+	let count = Number(localStorage.getItem(LOCAL_KEY));
+	if (!Number.isFinite(count) || count < BASE_COUNT) {
+		count = BASE_COUNT;
+	} else {
+		count += 1;
+	}
+	localStorage.setItem(LOCAL_KEY, count);
+	return count;
+}
+function formatNumber(number) {
+	return new Intl.NumberFormat().format(number);
+}
+if (resetButton) {
+	resetButton.addEventListener("click", () => {
+		localStorage.setItem(LOCAL_KEY, BASE_COUNT);
+		counterContainer.textContent = formatNumber(BASE_COUNT);
+	});
+}
 
 // copyright_year
 const copyrightYear = document.getElementById("current-year");
