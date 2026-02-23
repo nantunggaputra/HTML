@@ -191,6 +191,12 @@ function sortPortfolio(order) {
 // faq_toggle
 document.addEventListener("DOMContentLoaded", function () {
 	const faqItems = document.querySelectorAll(".faq-item");
+	if (faqItems.length > 0) {
+		const firstAnswer = faqItems[0].querySelector(".faq-answer");
+		if (firstAnswer) {
+			firstAnswer.classList.remove("hidden");
+		}
+	}
 	faqItems.forEach((item) => {
 		const question = item.querySelector(".faq-question");
 		const answer = item.querySelector(".faq-answer");
