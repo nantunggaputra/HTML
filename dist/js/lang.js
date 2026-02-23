@@ -25,6 +25,21 @@
 		section_qr_label: "Kode QR",
 		section_qr_title: "Pindai di sini",
 		section_qr_desc: "Portofolio juga tersedia melalui kode QR ini",
+		section_portfolio_label: "Portofolio",
+		section_portfolio_title: "Proyek Terbaru",
+		section_portfolio_desc: "Bagian ini menampilkan proyek-proyek terbaruku di bidang front-end web development dari beberapa kursus online, termasuk dari para tech influencer di bidang pemrograman.",
+		section_portfolio_oldest: "Terlama",
+		section_portfolio_newest: "Terbaru",
+		section_tech_label: "Stack Teknologi",
+		section_tech_title: "Teknologi Website dan Web App",
+		section_tech_desc: "Sejak Mei 2023, aku telah mempelajari bahasa pemrograman, algoritma, dan metodologi pengembangan software untuk membekali diri dengan keahlian teknis yang diperlukan.",
+		tech_programming_languages: "Bahasa Pemrograman",
+		tech_development_framework: "Kerangka Pengembangan",
+		tech_tools: "Peralatan",
+		tech_all_skills: "Seluruh Keahlian",
+		section_certify_label: "Sertifikasi",
+		section_certify_title: "Sertifikat",
+		section_certify_desc: "Tautan gambar ini menampilkan sertifikasi yang telah ku peroleh sebagai bentuk komitmenku untuk terus belajar serta keahlianku dalam front-end web development.",
 	};
 	let currentLang = "en";
 
