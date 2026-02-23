@@ -288,6 +288,8 @@ function switchTab(tab) {
 	const contentTech = document.getElementById("content-tech");
 	const subtitle = document.getElementById("blog-subtitle");
 	const description = document.getElementById("blog-description");
+	const subtitleHot = document.getElementById("blog-hot-subtitle");
+	const descriptionHot = document.getElementById("blog-hot-description");
 	if (tab === "otaku") {
 		btnOtaku.classList.add("active");
 		btnTech.classList.remove("active");
@@ -295,8 +297,10 @@ function switchTab(tab) {
 		contentOtaku.classList.add("flex");
 		contentTech.classList.remove("flex");
 		contentTech.classList.add("hidden");
-		subtitle.textContent = "Last Scribbles";
-		description.textContent = "This line contains someone's writing/scribbles on my blog about Ending Detective Conan fanfiction.";
+		subtitle.classList.remove("hidden");
+		description.classList.remove("hidden");
+		subtitleHot.classList.add("hidden");
+		descriptionHot.classList.add("hidden");
 	} else if (tab === "tech") {
 		btnTech.classList.add("active");
 		btnOtaku.classList.remove("active");
@@ -304,8 +308,10 @@ function switchTab(tab) {
 		contentTech.classList.add("flex");
 		contentOtaku.classList.remove("flex");
 		contentOtaku.classList.add("hidden");
-		subtitle.textContent = "Hottest Posts";
-		description.textContent = "This section features my posts on my blog about Website and Web App Technologies article.";
+		subtitleHot.classList.remove("hidden");
+		descriptionHot.classList.remove("hidden");
+		subtitle.classList.add("hidden");
+		description.classList.add("hidden");
 	}
 }
 

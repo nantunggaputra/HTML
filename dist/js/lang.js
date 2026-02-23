@@ -84,6 +84,22 @@
 		rate_feature_source_code: "Kepemilikan Source Code",
 		rate_feature_no_rent: "Sepenuhnya Milik Kamu - Tanpa Sewa",
 		section_rate_button: "Kerjasama denganku",
+		section_clients_label: "Klien",
+		section_clients_title: "Para Klien",
+		section_clients_desc: "Bagian ini menampilkan klien yang telah ku bantu dalam pembuatan website melalui proyek freelance dan internship berbasis proyek, yang menonjolkan keberhasilan dan visi unik mereka.",
+		section_company_label: "Perusahaan",
+		section_company_title: "Para Perusahaan",
+		section_company_desc: "Bagian ini menampilkan contoh perusahaan yang menginspirasi para profesional dan pencari kerja, meningkatkan citra perusahaan melalui pencapaian mereka yang luar biasa.",
+		section_cite_label: "Kutipan",
+		section_cite_title: "Kutipan dan Referensi",
+		section_cite_desc: "Carousel ini menampilkan kutipan penuh makna yang dipilih dan disampaikan kembali, mengandung kebijaksanaan yang menyentuh hati.",
+		section_blog_label: "Blog",
+		section_blog_title: "Coretan Terakhir",
+		section_blog_desc: "Bagian ini memuat coretan/tulisan seseorang di blogku mengenai fanfiction Ending Detective Conan.",
+		section_blog_hot_title: "Artikel Terpopuler",
+		section_blog_hot_desc: "Bagian ini menampilkan artikel di blogku seputar teknologi Website dan Web App.",
+		blog_read_more_unavailable: "Baca Selengkapnya... (belum tersedia)",
+		blog_read_more: "Baca Selengkapnya...",
 	};
 	let currentLang = "en";
 
