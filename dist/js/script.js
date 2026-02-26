@@ -10,6 +10,18 @@ function updateProgressBar() {
 window.addEventListener("scroll", updateProgressBar);
 updateProgressBar();
 
+// scroll_observer_resizer
+
+const observer = new ResizeObserver(() => {
+	if (window.location.hash) {
+		const target = document.querySelector(window.location.hash);
+		if (target) {
+			target.scrollIntoView();
+		}
+	}
+});
+observer.observe(document.body);
+
 // fixed_navbar
 window.onscroll = function () {
 	const header = document.querySelector("header");

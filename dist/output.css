@@ -1473,28 +1473,12 @@ video {
   padding-bottom: 2px;
 }
 
-.pl-1 {
-  padding-left: 0.25rem;
-}
-
 .pl-4 {
   padding-left: 1rem;
 }
 
-.pl-\[2px\] {
-  padding-left: 2px;
-}
-
-.pr-1 {
-  padding-right: 0.25rem;
-}
-
 .pr-2 {
   padding-right: 0.5rem;
-}
-
-.pr-\[2px\] {
-  padding-right: 2px;
 }
 
 .pt-0 {
