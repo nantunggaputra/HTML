@@ -21,6 +21,26 @@ const observer = new ResizeObserver(() => {
 	}
 });
 observer.observe(document.body);
+let hashActive = false;
+let anchorScrollFinished = false;
+document.addEventListener("click", function (e) {
+	const link = e.target.closest('a[href^="#"]');
+	if (!link) return;
+	const target = document.querySelector(link.getAttribute("href"));
+	if (!target) return;
+	hashActive = true;
+	anchorScrollFinished = false;
+});
+window.addEventListener("scrollend", function () {
+	if (!hashActive) return;
+	if (!anchorScrollFinished) {
+		anchorScrollFinished = true;
+	} else {
+		history.replaceState(null, document.title, window.location.pathname + window.location.search);
+		hashActive = false;
+		anchorScrollFinished = false;
+	}
+});
 
 // fixed_navbar
 window.onscroll = function () {
