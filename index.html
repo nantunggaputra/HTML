@@ -243,8 +243,8 @@
 						<h4 class="mb-3 text-base font-bold uppercase text-primary dark:text-secondary lg:text-2xl" data-i18n="section_qr_label">QR Code</h4>
 						<h3 class="mb-4 max-w-lg text-xl font-bold text-dark dark:text-white lg:text-3xl" data-i18n="section_qr_title">Scan Here</h3>
 						<p class="max-w-md text-base font-medium text-neutral-500 dark:text-neutral-400" data-i18n="section_qr_desc">Portfolio also available in this QR Code</p>
-						<img src="./dist/img/nantunggaputra.qr.svg" width="170" class="my-8 block dark:hidden" />
-						<img src="./dist/img/nantunggaputra-background.qr.svg" width="170" class="my-8 hidden dark:block" />
+						<img loading="lazy" decoding="async" src="./dist/img/nantunggaputra.qr.svg" width="170" class="my-8 block dark:hidden" />
+						<img loading="lazy" decoding="async" src="./dist/img/nantunggaputra-background.qr.svg" width="170" class="my-8 hidden dark:block" />
 					</div>
 				</div>
 			</div>
@@ -1704,6 +1704,11 @@
 		<a href="#whoami" id="tobottom" title="Go to bottom" class="no-click-sound fixed bottom-4 right-4 z-[9999] flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 bg-dark p-[5px] text-neutral-400 transition duration-300 hover:border-secondary hover:bg-secondary hover:text-white"><i data-feather="chevrons-down" class="mx-auto block text-center"></i></a>
 		<a href="#" id="totop" title="Go to top" class="no-click-sound fixed bottom-[84px] right-4 z-[9999] hidden h-9 w-9 items-center justify-center rounded-full border border-neutral-400 bg-dark p-[5px] text-neutral-400 transition duration-300 hover:border-secondary hover:bg-secondary hover:text-white"><i data-feather="chevrons-up" class="mx-auto block text-center"></i></a>
 		<!-- Go_to_Bottom_End -->
+
+		<!-- Powersaver -->
+		<div class="powersaver-overlay" id="powersaver">
+			<i data-feather="power" class="powersaver-icon"></i>
+		</div>
 
 		<!-- Feather_Icons -->
 		<script>

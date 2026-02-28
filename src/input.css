@@ -27,8 +27,8 @@ body {
 
 .navbar-fixed {
 	z-index: 9999;
-	box-shadow: inset 0 -1px 0 0 rgba(37, 37, 37, 0.1);
-	background-color: rgba(255, 255, 255, 0.55);
+	box-shadow: inset 0 -1px 0 0 #2525251a;
+	background-color: #ffffff8c;
 	backdrop-filter: blur(10px);
 	@apply dark:bg-dark dark:bg-opacity-55;
 }
@@ -38,7 +38,7 @@ body {
 	margin: 8px 0;
 	width: 30px;
 	height: 2px;
-	background-color: rgb(37, 37, 37);
+	background-color: #252525;
 	opacity: 0.55;
 	@apply dark:bg-white;
 }
@@ -68,7 +68,7 @@ body.bluelightfilter:before {
 	top: -384px;
 	right: -144px;
 	bottom: -384px;
-	background-color: rgba(255, 235, 175);
+	background-color: #ffebaf;
 	mix-blend-mode: multiply;
 	@apply dark:bg-neutral-500;
 }
@@ -84,7 +84,7 @@ body.bluelightfilter:before {
 	z-index: 99999;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(3, 108, 168);
+	background-color: #036ca8;
 	animation: load 3.3s normal forwards;
 	@apply dark:bg-dark;
 }
@@ -199,7 +199,7 @@ body.bluelightfilter:before {
 .eight,
 .nine,
 .ten {
-	background-color: rgb(255, 255, 255);
+	background-color: #ffffff;
 }
 
 @keyframes load {
@@ -300,7 +300,7 @@ body.bluelightfilter:before {
 .carousel-container {
 	position: relative;
 	aspect-ratio: 9 / 16;
-	background: white;
+	background: #ffffff;
 	overflow: hidden;
 	touch-action: pan-y pinch-zoom;
 }
@@ -388,26 +388,26 @@ body.bluelightfilter:before {
 }
 
 .nav-btn {
-	background: white;
+	background: #ffffff;
 	color: #252525;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px #0000001a;
 }
 
 .nav-btn:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 8px #0000001a;
 }
 
 .nav-btn.active {
 	background: #036ca8;
-	color: white;
+	color: #ffffff;
 	box-shadow: none;
 	@apply dark:bg-secondary;
 }
 
 .nav-btn.active:hover {
 	background: #025585;
-	color: white;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	color: #ffffff;
+	box-shadow: 0 4px 8px #0000001a;
 }
 
 .content-section {
@@ -470,4 +470,42 @@ body.bluelightfilter:before {
 
 .custom-scrollbar {
 	scrollbar-color: #d4d4d4 transparent;
+}
+
+.powersaver-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #036ca8;
+	@apply dark:bg-dark;
+	z-index: 10001;
+	display: none;
+}
+
+.powersaver-overlay.active {
+	display: block;
+}
+
+.powersaver-icon {
+	width: 100%;
+	height: 100%;
+	padding-block: 47.5vh;
+	object-fit: contain;
+	object-position: center;
+	color: #ffffff;
+}
+
+.powersaver-overlay.closing {
+	animation: shrinkPowersaver 0.5s ease forwards;
+}
+
+@keyframes shrinkPowersaver {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

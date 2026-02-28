@@ -600,6 +600,39 @@ window.addEventListener("scroll", function () {
 	}
 });
 
+// powersaver
+const powersaver = document.getElementById("powersaver");
+let isTabActive = true;
+let closeTimeout;
+document.addEventListener("visibilitychange", function () {
+	if (document.hidden) {
+		isTabActive = false;
+		powersaver.classList.add("active");
+		powersaver.classList.remove("closing");
+	} else {
+		isTabActive = true;
+		closeTimeout = setTimeout(() => {
+			powersaver.classList.add("closing");
+			setTimeout(() => {
+				powersaver.classList.remove("active", "closing");
+			}, 500);
+		}, 30000);
+	}
+});
+function deactivatePowerSaver() {
+	clearTimeout(closeTimeout);
+	if (powersaver.classList.contains("active")) {
+		powersaver.classList.add("closing");
+		setTimeout(() => {
+			powersaver.classList.remove("active", "closing");
+		}, 500);
+	}
+}
+const interactionEvents = ["mousedown", "mousemove", "keypress", "scroll", "touchstart", "click", "contextmenu"];
+interactionEvents.forEach((eventType) => {
+	window.addEventListener(eventType, deactivatePowerSaver, { passive: true });
+});
+
 // for_develovers
 console.log("---");
 console.log("Hi Develovers!");
