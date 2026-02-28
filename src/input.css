@@ -334,7 +334,15 @@ body.bluelightfilter:before {
 	text-align: center;
 	line-height: 1.8;
 	font-size: 1.125rem;
-	max-width: 90%;
+	max-width: 80%;
+}
+
+.font-arabic {
+	font-family: sans-serif;
+	color: #333333;
+	word-spacing: 2px;
+	line-height: 2.2;
+	font-size: 1.3rem;
 }
 
 .dot-indicator {
