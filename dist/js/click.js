@@ -20,32 +20,40 @@ class ClickSoundEffect {
 	}
 	setupClickListener() {
 		document.addEventListener("click", (e) => {
-			if (e.target.closest("button, a, [role='button'], input")) {
-				this.playBubbleClick();
-			}
+			const target = e.target.closest("button, a, [role='button'], input");
+			if (!target) return;
+			if (target.classList.contains("no-click-sound")) return;
+			this.playGlassTap();
 		});
 	}
-	playBubbleClick() {
+	playGlassTap() {
 		if (this.audioCtx.state !== "running") return;
 		const now = this.audioCtx.currentTime;
-		const osc = this.audioCtx.createOscillator();
+		const osc1 = this.audioCtx.createOscillator();
+		const osc2 = this.audioCtx.createOscillator();
 		const gain = this.audioCtx.createGain();
 		const filter = this.audioCtx.createBiquadFilter();
-		osc.type = "sine";
-		osc.frequency.setValueAtTime(500, now);
-		osc.frequency.exponentialRampToValueAtTime(300, now + 0.12);
+		osc1.type = "sine";
+		osc1.frequency.setValueAtTime(1400, now);
+		osc2.type = "triangle";
+		osc2.frequency.setValueAtTime(2100, now);
 		gain.gain.setValueAtTime(0.001, now);
-		gain.gain.linearRampToValueAtTime(0.25, now + 0.01);
+		gain.gain.linearRampToValueAtTime(0.18, now + 0.005);
 		gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-		filter.type = "lowpass";
+		filter.type = "bandpass";
 		filter.frequency.setValueAtTime(1800, now);
-		osc.connect(filter);
+		filter.Q.setValueAtTime(8, now);
+		osc1.connect(filter);
+		osc2.connect(filter);
 		filter.connect(gain);
 		gain.connect(this.audioCtx.destination);
-		osc.start(now);
-		osc.stop(now + 0.18);
-		osc.onended = () => {
-			osc.disconnect();
+		osc1.start(now);
+		osc2.start(now);
+		osc1.stop(now + 0.18);
+		osc2.stop(now + 0.18);
+		osc1.onended = () => {
+			osc1.disconnect();
+			osc2.disconnect();
 			gain.disconnect();
 			filter.disconnect();
 		};
