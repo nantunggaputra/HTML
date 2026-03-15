@@ -217,6 +217,8 @@ const player = {
 const obstacles = [];
 let obstacleTimer = 0;
 const obstacleInterval = 120;
+let gameSpeed = 4;
+let speedIncreaseTimer = 0;
 function initGame() {
 	if (!canvas) return;
 	canvas.width = canvas.offsetWidth;
@@ -228,6 +230,8 @@ function initGame() {
 	obstacleTimer = 0;
 	isGameOver = false;
 	gameScore = 0;
+	gameSpeed = 4;
+	speedIncreaseTimer = 0;
 	document.getElementById("gameScore").textContent = gameScore;
 	document.getElementById("gameHighScore").textContent = gameHighScore;
 	document.getElementById("gameOver").classList.add("hidden");
@@ -261,15 +265,14 @@ function update() {
 	ctx.fillStyle = "#ffffff";
 	ctx.font = "32px monospace";
 	ctx.fillText("𓊝", player.x, player.y + 30);
+	speedIncreaseTimer++;
+	if (speedIncreaseTimer >= 180) {
+		gameSpeed += 0.5;
+		speedIncreaseTimer = 0;
+	}
 	obstacleTimer++;
 	if (obstacleTimer >= obstacleInterval) {
-		obstacles.push({
-			x: canvas.width,
-			y: canvas.height - 40 - 20,
-			width: 50,
-			height: 40,
-			speed: 4,
-		});
+		obstacles.push({ x: canvas.width, y: canvas.height - 40 - 20, width: 50, height: 40, speed: gameSpeed });
 		obstacleTimer = 0;
 	}
 	for (let i = obstacles.length - 1; i >= 0; i--) {
@@ -293,7 +296,7 @@ function update() {
 			return;
 		}
 	}
-	ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+	ctx.strokeStyle = "rgba(255,255,255,0.3)";
 	ctx.lineWidth = 2;
 	ctx.beginPath();
 	ctx.moveTo(0, canvas.height - 20);
