@@ -28,6 +28,7 @@
 	</head>
 
 	<body class="overflow-hidden bg-primary text-white dark:bg-dark">
+		<!-- Lock_Screen_Overlay -->
 		<div class="lockscreen-container">
 			<div class="arc-section">
 				<svg class="arc-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +66,19 @@
 					<i data-feather="bookmark"></i>
 				</button>
 			</div>
+		</div>
+
+		<!-- Hidden_Game_Overlay -->
+		<div class="game-overlay bg-primary text-white dark:bg-dark" id="gameOverlay">
+			<div class="game-container">
+				<canvas id="gameCanvas"></canvas>
+				<div class="game-over hidden" id="gameOver">
+					<button onclick="restartGame()" class="replay-btn"><i data-feather="rotate-cw" class="scale-75"></i> Replay</button>
+				</div>
+			</div>
+			<button onclick="closeGame()" class="close-game-btn">
+				<i data-feather="x"></i>
+			</button>
 		</div>
 
 		<!-- Feather_Icons -->
