@@ -91,16 +91,21 @@ async function shareScreen() {
 function addBookmark() {
 	const pageTitle = document.title;
 	const pageURL = window.location.href;
+	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+	if (isMobile) {
+		console.log("Tap Share button (⋮ or ⎙) in your browser, then select 'Add to Home Screen' or 'Bookmark'");
+		return;
+	}
 	try {
 		if (window.sidebar && window.sidebar.addPanel) {
 			window.sidebar.addPanel(pageTitle, pageURL, "");
 		} else if (window.external && "AddFavorite" in window.external) {
 			window.external.AddFavorite(pageURL, pageTitle);
 		} else {
-			console.error("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
+			console.log("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
 		}
 	} catch (e) {
-		console.error("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
+		console.log("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
 	}
 }
 generateArcLines();
@@ -139,14 +144,21 @@ let touchStartX = 0;
 let touchStartY = 0;
 let isTouching = false;
 let longPressTimer;
+let isLongPressActive = false;
 document.addEventListener("touchstart", (e) => {
 	touchStartX = e.touches[0].clientX;
 	touchStartY = e.touches[0].clientY;
 	isTouching = true;
-	longPressTimer = setTimeout(() => {}, 500);
+	isLongPressActive = false;
+	longPressTimer = setTimeout(() => {
+		isLongPressActive = true;
+	}, 500);
 });
 document.addEventListener("touchmove", (e) => {
-	if (!isTouching) return;
+	if (!isTouching || !isLongPressActive) {
+		clearTimeout(longPressTimer);
+		return;
+	}
 	const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
 	const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
 	const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -155,20 +167,23 @@ document.addEventListener("touchmove", (e) => {
 		clearTimeout(longPressTimer);
 		triggerGame();
 		isTouching = false;
+		isLongPressActive = false;
 	}
 });
 document.addEventListener("touchend", () => {
 	clearTimeout(longPressTimer);
 	isTouching = false;
+	isLongPressActive = false;
 });
 document.addEventListener("selectstart", (e) => {
-	if (document.getElementById("gameOverlay").classList.contains("active")) {
+	const gameOverlay = document.getElementById("gameOverlay");
+	if (gameOverlay && gameOverlay.classList.contains("active")) {
 		e.preventDefault();
 	}
 });
 function triggerGame() {
 	const gameOverlay = document.getElementById("gameOverlay");
-	if (!gameOverlay.classList.contains("active")) {
+	if (gameOverlay && !gameOverlay.classList.contains("active")) {
 		gameOverlay.classList.add("active");
 		feather.replace();
 		initGame();
@@ -274,6 +289,7 @@ function update() {
 }
 function gameOver() {
 	isGameOver = true;
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	document.getElementById("gameOver").classList.remove("hidden");
 	feather.replace();
 	cancelAnimationFrame(gameLoop);
