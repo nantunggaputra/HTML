@@ -199,9 +199,11 @@ function closeGame() {
 
 // gameplay_logic
 const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+const ctx = canvas ? canvas.getContext("2d") : null;
 let gameLoop;
 let isGameOver = false;
+let gameScore = 0;
+let gameHighScore = parseInt(localStorage.getItem("lockedGameHighScore")) || 0;
 const player = {
 	x: 50,
 	y: 0,
@@ -216,6 +218,7 @@ const obstacles = [];
 let obstacleTimer = 0;
 const obstacleInterval = 120;
 function initGame() {
+	if (!canvas) return;
 	canvas.width = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
 	player.y = canvas.height - player.height - 20;
@@ -224,15 +227,19 @@ function initGame() {
 	obstacles.length = 0;
 	obstacleTimer = 0;
 	isGameOver = false;
+	gameScore = 0;
+	document.getElementById("gameScore").textContent = gameScore;
+	document.getElementById("gameHighScore").textContent = gameHighScore;
 	document.getElementById("gameOver").classList.add("hidden");
 	gameLoop = requestAnimationFrame(update);
 	canvas.addEventListener("click", jump);
-	document.addEventListener("keydown", (e) => {
-		if (e.code === "Space" || e.code === "ArrowUp") {
-			e.preventDefault();
-			jump();
-		}
-	});
+	document.addEventListener("keydown", handleJump);
+}
+function handleJump(e) {
+	if (e.code === "Space" || e.code === "ArrowUp") {
+		e.preventDefault();
+		jump();
+	}
 }
 function jump() {
 	if (!player.isJumping && !isGameOver) {
@@ -273,6 +280,13 @@ function update() {
 		ctx.fillText("𓂃𓂃", obs.x, obs.y + 30);
 		if (obs.x + obs.width < 0) {
 			obstacles.splice(i, 1);
+			gameScore++;
+			document.getElementById("gameScore").textContent = gameScore;
+			if (gameScore > gameHighScore) {
+				gameHighScore = gameScore;
+				localStorage.setItem("lockedGameHighScore", gameHighScore);
+				document.getElementById("gameHighScore").textContent = gameHighScore;
+			}
 		}
 		if (player.x < obs.x + obs.width - 10 && player.x + player.width - 10 > obs.x && player.y < obs.y + obs.height - 10 && player.y + player.height - 10 > obs.y) {
 			gameOver();
@@ -290,6 +304,7 @@ function update() {
 function gameOver() {
 	isGameOver = true;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	document.getElementById("finalScore").textContent = gameScore;
 	document.getElementById("gameOver").classList.remove("hidden");
 	feather.replace();
 	cancelAnimationFrame(gameLoop);
