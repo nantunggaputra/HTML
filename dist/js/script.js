@@ -562,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // tobottom
 window.addEventListener("scroll", function () {
+	const locked = document.getElementById("locked");
 	const goToTop = document.getElementById("totop");
 	const goToBottom = document.getElementById("tobottom");
 	const audioButton1 = document.getElementById("playAudioButton1");
@@ -576,8 +577,10 @@ window.addEventListener("scroll", function () {
 	const documentHeight = document.documentElement.scrollHeight;
 	if (scrollPosition + viewportHeight <= 2000) {
 		goToTop.style.display = "";
+		locked.style.display = "flex";
 	} else {
 		goToTop.style.display = "flex";
+		locked.style.display = "none";
 	}
 	if (scrollPosition + viewportHeight >= documentHeight - 200) {
 		goToBottom.style.display = "none";
