@@ -9,4 +9,4 @@ This **Homepage Portfolio** features my latest projects around the **front-end w
 Thank you for exploring my website.
 I hope the provided information offers valuable insights.
 
-Made with Love by Nantungga Putra | &copy; 2023-2026
+Made with Love at Night by Nantungga Putra | &copy; 2023-Present
