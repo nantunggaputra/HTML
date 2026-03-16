@@ -88,25 +88,38 @@ async function shareScreen() {
 		}
 	}
 }
-function addBookmark() {
-	const pageTitle = document.title;
-	const pageURL = window.location.href;
-	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-	if (isMobile) {
-		console.log("Tap Share button (⋮ or ⎙) in your browser, then select 'Add to Home Screen' or 'Bookmark'");
+let isCoolingDown = false;
+async function copyToClipboard() {
+	if (isCoolingDown) return;
+	const btn = document.getElementById("copied");
+	const icon = btn.querySelector("i, svg");
+	if (!icon) {
+		console.error("Icon tidak ditemukan!");
 		return;
 	}
 	try {
-		if (window.sidebar && window.sidebar.addPanel) {
-			window.sidebar.addPanel(pageTitle, pageURL, "");
-		} else if (window.external && "AddFavorite" in window.external) {
-			window.external.AddFavorite(pageURL, pageTitle);
-		} else {
-			console.log("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
-		}
+		await navigator.clipboard.writeText(window.location.href);
+		console.log("Link copied! Paste to bookmark bar or share with friends!");
 	} catch (e) {
-		console.log("Press Ctrl+D (Cmd+D on Mac) to bookmark this page!");
+		const tempInput = document.createElement("input");
+		tempInput.value = window.location.href;
+		document.body.appendChild(tempInput);
+		tempInput.select();
+		document.execCommand("copy");
+		document.body.removeChild(tempInput);
+		console.log("Link copied! Paste to bookmark bar or share with friends!");
 	}
+	isCoolingDown = true;
+	btn.disabled = true;
+	icon.setAttribute("data-feather", "check");
+	feather.replace();
+	setTimeout(() => {
+		const currentIcon = btn.querySelector("i, svg");
+		currentIcon.setAttribute("data-feather", "copy");
+		feather.replace();
+		isCoolingDown = false;
+		btn.disabled = false;
+	}, 5000);
 }
 generateArcLines();
 updateTime();
