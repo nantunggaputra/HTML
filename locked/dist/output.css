@@ -609,6 +609,7 @@ video {
 
 body {
   font-family: "Inter", sans-serif;
+  cursor: default;
 }
 
 .lockscreen-container {
@@ -676,6 +677,7 @@ body {
   position: relative;
   width: 140px;
   height: 140px;
+  cursor: pointer;
 }
 
 .progress-ring {
@@ -705,6 +707,27 @@ body {
   transform: translate(-50%, -50%);
   font-size: 2rem;
   font-weight: 600;
+}
+
+.progress-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-icon.hidden {
+  display: none;
+}
+
+.progress-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: white;
+  stroke-width: 2;
 }
 
 .icons-section {
@@ -790,28 +813,49 @@ body {
     text-stroke: 1px rgba(255, 255, 255, 0.02);
   }
 
-  1% {
-    color: rgb(40, 40, 40);
+  11% {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(50, 50, 50);
+    text-stroke: 1px rgb(50, 50, 50);
+  }
+
+  12% {
+    color: rgba(255, 255, 255, 0.05);
     -webkit-text-fill-color: unset;
     -webkit-text-stroke: unset;
     text-stroke: unset;
   }
 
-  5% {
+  13% {
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+  }
+
+  14% {
     color: rgb(37, 37, 37);
     -webkit-text-fill-color: unset;
     -webkit-text-stroke: unset;
     text-stroke: unset;
   }
 
-  25% {
-    color: rgb(37, 37, 37);
+  42% {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(50, 50, 50);
+    text-stroke: 1px rgb(50, 50, 50);
+  }
+
+  43% {
+    color: rgba(255, 255, 255, 0.05);
     -webkit-text-fill-color: unset;
     -webkit-text-stroke: unset;
     text-stroke: unset;
   }
 
-  30% {
+  44% {
     color: transparent;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
@@ -1053,7 +1097,7 @@ body {
   }
 
   .bg-text.symbol {
-    bottom: -3%;
+    bottom: -2.5%;
     font-size: 4rem;
   }
 

@@ -46,12 +46,15 @@
 			</div>
 
 			<div class="progress-section">
-				<div class="progress-container">
+				<div class="progress-container" onclick="toggleProgressDisplay()">
 					<svg class="progress-ring" width="140" height="140">
 						<circle class="progress-ring-bg" cx="70" cy="70" r="60"></circle>
 						<circle class="progress-ring-fill" id="progressCircle" cx="70" cy="70" r="60"></circle>
 					</svg>
-					<div class="progress-text"><span id="progressPercent">0</span>%</div>
+					<div class="progress-text" id="progressText"><span id="progressPercent">0</span>%</div>
+					<div class="progress-icon hidden" id="progressIcon">
+						<i data-feather="sun" id="dayIcon"></i>
+					</div>
 				</div>
 			</div>
 

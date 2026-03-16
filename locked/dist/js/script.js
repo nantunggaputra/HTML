@@ -63,6 +63,40 @@ function updateTime() {
 	const circumference = 2 * Math.PI * 60;
 	const offset = circumference - (progressPercent / 100) * circumference;
 	circle.style.strokeDashoffset = offset;
+	const currentHour = now.getHours();
+	const isSunTime = currentHour >= 6 && currentHour < 18;
+	const dayIcon = document.getElementById("dayIcon");
+	dayIcon.setAttribute("data-feather", isSunTime ? "sun" : "moon");
+	if (showProgressIcon) {
+		feather.replace();
+	}
+}
+let showProgressIcon = false;
+function toggleProgressDisplay() {
+	showProgressIcon = !showProgressIcon;
+	const progressText = document.getElementById("progressText");
+	const progressIcon = document.getElementById("progressIcon");
+	const circle = document.getElementById("progressCircle");
+	const circumference = 2 * Math.PI * 60;
+	circle.style.transition = "none";
+	circle.style.strokeDashoffset = circumference;
+	setTimeout(() => {
+		circle.style.transition = "stroke-dashoffset 1s ease";
+		const now = new Date();
+		const totalMinutesInDay = 24 * 60;
+		const minutesPassed = now.getHours() * 60 + now.getMinutes();
+		const progressPercent = Math.round((minutesPassed / totalMinutesInDay) * 100);
+		const offset = circumference - (progressPercent / 100) * circumference;
+		circle.style.strokeDashoffset = offset;
+	}, 50);
+	if (showProgressIcon) {
+		progressText.classList.add("hidden");
+		progressIcon.classList.remove("hidden");
+	} else {
+		progressText.classList.remove("hidden");
+		progressIcon.classList.add("hidden");
+	}
+	feather.replace();
 }
 
 // feature_logic
