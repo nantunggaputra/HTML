@@ -704,7 +704,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .icons-section {
@@ -740,6 +740,190 @@ body {
   width: 16px;
   height: 16px;
   stroke: white;
+}
+
+.lock-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(37, 37, 37);
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lock-modal.hidden {
+  display: none;
+}
+
+.lock-content {
+  text-align: center;
+}
+
+.bg-text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+  text-stroke: 1px rgba(255, 255, 255, 0.02);
+  text-align: center;
+  letter-spacing: 0.2rem;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: lighting 4s ease-in-out;
+  z-index: -1;
+}
+
+@keyframes lighting {
+  0% {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+    text-stroke: 1px rgba(255, 255, 255, 0.02);
+  }
+
+  1% {
+    color: rgb(40, 40, 40);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+  }
+
+  5% {
+    color: rgb(37, 37, 37);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+  }
+
+  25% {
+    color: rgb(37, 37, 37);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+  }
+
+  30% {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+    text-stroke: 1px rgba(255, 255, 255, 0.02);
+  }
+
+  100% {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+    text-stroke: 1px rgba(255, 255, 255, 0.02);
+  }
+}
+
+.bg-text.numb {
+  top: 2%;
+  font-size: 15rem;
+}
+
+.bg-text.addr {
+  top: 1%;
+  font-size: 5rem;
+}
+
+.bg-text.symbol {
+  bottom: -21%;
+  font-size: 8rem;
+}
+
+.lock-title,
+.lock-subtitle {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.lock-subtitle {
+  margin-top: 2rem;
+}
+
+.pin-inputs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.pin-box {
+  width: 48px;
+  height: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.pin-box:focus {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.unlock-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.unlock-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+.unlock-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: white;
+}
+
+@keyframes shake {
+  0%,
+	100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  75% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .game-overlay {
@@ -858,6 +1042,37 @@ body {
 }
 
 @media (max-width: 640px) {
+  .bg-text.numb {
+    top: 1%;
+    font-size: 9rem;
+  }
+
+  .bg-text.addr {
+    top: 0.5%;
+    font-size: 3rem;
+  }
+
+  .bg-text.symbol {
+    bottom: -3%;
+    font-size: 4rem;
+  }
+
+  .lock-title,
+	.lock-subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .pin-box {
+    width: 40px;
+    height: 58px;
+    font-size: 1.5rem;
+  }
+
+  .pin-inputs {
+    gap: 0.75rem;
+  }
+
   .game-container {
     height: 200px;
   }

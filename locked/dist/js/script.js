@@ -69,6 +69,87 @@ function updateTime() {
 function goHome() {
 	window.location.href = "../";
 }
+function fisrtLock() {
+	if (localStorage.getItem("isLocked") === "false") {
+		return;
+	} else {
+		showLockModal();
+	}
+}
+function showLockModal() {
+	localStorage.setItem("isLocked", "true");
+	document.getElementById("lockModal").classList.remove("hidden");
+	document.getElementById("pin1").focus();
+	feather.replace();
+	setupPinInputs();
+}
+function setupPinInputs() {
+	const pins = document.querySelectorAll(".pin-box");
+	pins.forEach((pin, index) => {
+		pin.addEventListener("input", (e) => {
+			e.target.value = e.target.value.slice(0, 1);
+			if (e.target.value.length === 1 && index < pins.length - 1) {
+				pins[index + 1].focus();
+			}
+		});
+		pin.addEventListener("keydown", (e) => {
+			if (e.key === "Backspace" && e.target.value === "" && index > 0) {
+				pins[index - 1].focus();
+			}
+			if (e.key === "ArrowLeft" && index > 0) {
+				pins[index - 1].focus();
+			}
+			if (e.key === "ArrowRight" && index < pins.length - 1) {
+				pins[index + 1].focus();
+			}
+		});
+		pin.addEventListener("paste", (e) => {
+			e.preventDefault();
+			const paste = e.clipboardData.getData("text").slice(0, 4);
+			for (let i = 0; i < paste.length && index + i < pins.length; i++) {
+				pins[index + i].value = paste[i];
+				if (index + i < pins.length - 1) {
+					pins[index + i + 1].focus();
+				}
+			}
+		});
+	});
+}
+function unlockScreen() {
+	const pin1 = document.getElementById("pin1").value;
+	const pin2 = document.getElementById("pin2").value;
+	const pin3 = document.getElementById("pin3").value;
+	const pin4 = document.getElementById("pin4").value;
+	const enteredPin = pin1 + pin2 + pin3 + pin4;
+	if (enteredPin === "SHER") {
+		document.getElementById("lockModal").classList.add("hidden");
+		document.getElementById("pin1").value = "";
+		document.getElementById("pin2").value = "";
+		document.getElementById("pin3").value = "";
+		document.getElementById("pin4").value = "";
+		localStorage.setItem("isLocked", "false");
+	} else {
+		const pins = document.querySelectorAll(".pin-box");
+		pins.forEach((pin) => {
+			pin.value = "";
+			pin.style.borderColor = "rgba(255,100,100,0.8)";
+			pin.style.animation = "shake 0.25s";
+		});
+		setTimeout(() => {
+			pins.forEach((pin) => {
+				pin.style.borderColor = "rgba(255,255,255,0.3)";
+				pin.style.animation = "";
+			});
+			document.getElementById("pin1").focus();
+		}, 250);
+	}
+}
+if (localStorage.getItem("isLocked") === "true") {
+	document.getElementById("lockModal").classList.remove("hidden");
+	document.getElementById("pin1").focus();
+	feather.replace();
+	setupPinInputs();
+}
 async function shareScreen() {
 	const shareData = {
 		title: "Homepage Portfolio | Locked",
@@ -121,6 +202,7 @@ async function copyToClipboard() {
 		btn.disabled = false;
 	}, 5000);
 }
+fisrtLock();
 generateArcLines();
 updateTime();
 setInterval(updateTime, 1000);
@@ -195,6 +277,8 @@ document.addEventListener("selectstart", (e) => {
 	}
 });
 function triggerGame() {
+	const lockModal = document.getElementById("lockModal");
+	if (lockModal && lockModal.classList && !lockModal.classList.contains("hidden")) return;
 	const gameOverlay = document.getElementById("gameOverlay");
 	if (gameOverlay && !gameOverlay.classList.contains("active")) {
 		gameOverlay.classList.add("active");

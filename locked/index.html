@@ -13,7 +13,7 @@
 		<meta property="og:image" content="../dist/img/nantunggaputra-background.webp" />
 		<meta property="og:url" content="https://nantunggaputra.github.io/HTML/locked" />
 		<link href="https://nantunggaputra.github.io/HTML/locked" rel="canonical" />
-		<link href="./dist/output.css" rel="stylesheet" />
+		<link href="./dist/build.css" rel="stylesheet" />
 		<link href="../dist/img/favicon.ico" rel="icon" type="image/x-icon" />
 		<link href="../dist/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.1/dist/feather.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -59,6 +59,9 @@
 				<button onclick="goHome()" class="icon-btn">
 					<i data-feather="home"></i>
 				</button>
+				<button onclick="showLockModal()" class="icon-btn">
+					<i data-feather="lock"></i>
+				</button>
 				<button onclick="shareScreen()" class="icon-btn">
 					<i data-feather="share-2"></i>
 				</button>
@@ -68,17 +71,38 @@
 			</div>
 		</div>
 
+		<!-- Lock_Modal_Overlay -->
+		<div class="lock-modal hidden" id="lockModal">
+			<div class="lock-content">
+				<div class="bg-text numb">221B</div>
+				<div class="bg-text addr"><nobr>BAKER STREET</nobr></div>
+				<div class="bg-text symbol"><nobr>SHERLOCK</nobr></div>
+				<h2 class="lock-title">I AM</h2>
+				<div class="pin-inputs">
+					<input type="text" maxlength="1" class="pin-box" id="pin1" />
+					<input type="text" maxlength="1" class="pin-box" id="pin2" />
+					<input type="text" maxlength="1" class="pin-box" id="pin3" />
+					<input type="text" maxlength="1" class="pin-box" id="pin4" />
+				</div>
+				<h2 class="lock-subtitle">LOCKED</h2>
+				<button onclick="unlockScreen()" class="unlock-btn">
+					<i data-feather="unlock"></i>
+				</button>
+			</div>
+		</div>
+
 		<!-- Hidden_Game_Overlay -->
 		<div class="game-overlay bg-primary text-white dark:bg-dark" id="gameOverlay">
 			<div class="game-container">
 				<div class="score-display">
+					<div class="score-item text-sm opacity-80 md:text-base">Gloria Scott (1893)</div>
 					<div class="score-item text-sm opacity-80 md:text-base">Score: <span id="gameScore">0</span></div>
 					<div class="score-item text-sm opacity-80 md:text-base">High Score: <span id="gameHighScore">0</span></div>
 				</div>
 				<canvas id="gameCanvas"></canvas>
 				<div class="game-over hidden" id="gameOver">
 					<div class="mb-4 text-base opacity-80 md:text-xl">
-						Game Over! <nobr>Score: <span id="finalScore">0</span></nobr>
+						Game Over.. <nobr>Score: <span id="finalScore">0</span></nobr>
 					</div>
 					<button onclick="restartGame()" class="replay-btn"><i data-feather="rotate-cw" class="scale-75"></i> Replay</button>
 				</div>
