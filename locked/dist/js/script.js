@@ -8,6 +8,7 @@ const translations = {
 		gameOver: "Game Over. ",
 		score: "Score: ",
 		highScore: "High Score: ",
+		replayDesc: "Replay",
 		iAm: "I AM",
 		locked: "LOCKED",
 	},
