@@ -1,3 +1,30 @@
+// i18n_logic
+const lockedSavedLang = localStorage.getItem("lang") || "en";
+const translations = {
+	en: {
+		months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+		days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+		gameTitle: "Gloria Scott Ship (1893)",
+		gameOver: "Game Over. ",
+		score: "Score: ",
+		highScore: "High Score: ",
+		iAm: "I AM",
+		locked: "LOCKED",
+	},
+	id: {
+		months: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+		days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+		gameTitle: "Kapal Gloria Scott (1893)",
+		gameOver: "Sudah Kalah. ",
+		score: "Skor: ",
+		highScore: "Skor Tertinggi: ",
+		replayDesc: "Ulangi",
+		iAm: "I AM",
+		locked: "LOCKED",
+	},
+};
+const t = translations[lockedSavedLang];
+
 // time_logic
 function generateArcLines() {
 	const arcLines = document.getElementById("arcLines");
@@ -47,12 +74,10 @@ function updateTime() {
 	const seconds = now.getSeconds();
 	document.getElementById("second").textContent = String(seconds).padStart(2, "0");
 	updateArcLines(seconds);
-	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	const month = months[now.getMonth()];
+	const month = t.months[now.getMonth()];
 	const date = now.getDate();
 	const year = now.getFullYear();
-	const day = days[now.getDay()];
+	const day = t.days[now.getDay()];
 	document.getElementById("date").textContent = `${month} ${date} ${year}`;
 	document.getElementById("day").textContent = day;
 	const totalMinutesInDay = 24 * 60;
@@ -236,6 +261,18 @@ async function copyToClipboard() {
 		btn.disabled = false;
 	}, 5000);
 }
+
+// apply_translations_on_load
+document.addEventListener("DOMContentLoaded", () => {
+	document.querySelector(".lock-title").textContent = t.iAm;
+	document.querySelector(".lock-subtitle").textContent = t.locked;
+	document.querySelector(".score-display .score-item:nth-child(1)").textContent = t.gameTitle;
+	document.querySelector(".score-display .score-item:nth-child(2)").innerHTML = `${t.score}<span id="gameScore">0</span>`;
+	document.querySelector(".score-display .score-item:nth-child(3)").innerHTML = `${t.highScore}<span id="gameHighScore">0</span>`;
+	document.querySelector(".replay-desc").textContent = t.replayDesc;
+});
+
+// run_function_on_load
 fisrtLock();
 generateArcLines();
 updateTime();
@@ -438,7 +475,7 @@ function update() {
 function gameOver() {
 	isGameOver = true;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	document.getElementById("finalScore").textContent = gameScore;
+	document.querySelector("#gameOver .mb-4").innerHTML = `${t.gameOver}<nobr>${t.score}<span id="finalScore">${gameScore}</span></nobr>`;
 	document.getElementById("gameOver").classList.remove("hidden");
 	feather.replace();
 	cancelAnimationFrame(gameLoop);
