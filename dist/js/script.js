@@ -219,6 +219,9 @@ function sortPortfolio(order) {
 		portfolioGrid.style.opacity = "1";
 	}, 300);
 }
+document.addEventListener("DOMContentLoaded", function () {
+	sortPortfolio("newest");
+});
 
 // faq_toggle
 document.addEventListener("DOMContentLoaded", function () {
@@ -346,6 +349,9 @@ function switchTab(tab) {
 		description.classList.add("hidden");
 	}
 }
+document.addEventListener("DOMContentLoaded", function () {
+	switchTab("tech");
+});
 
 // audio_source
 const audioSource = document.querySelectorAll("audio");
