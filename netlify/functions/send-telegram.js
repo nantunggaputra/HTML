@@ -1,13 +1,13 @@
 export default async function handler(req, res) {
   const allowedOrigins = [
     "https://nantunggaputra.github.io",
-    "https://nantunggaputra-frontend-web.vercel.app",
+    "https://nantunggaputra-frontend-we-git-bfaa99-nantungga-putras-projects.vercel.app",
     "https://nantunggaputra.netlify.app",
   ];
 
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", origin);
   }
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
