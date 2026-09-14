@@ -463,7 +463,6 @@ document.getElementById("sendTelegramBtn").addEventListener("click", async funct
 		let emailCount = parseInt(storage.getItem("emailCount")) || 0;
 		if (emailCount >= 6) {
 			console.log("You have exceeded the send request limit.");
-			alert("You have exceeded the maximum message send limit today.");
 			return;
 		}
 	} catch (error) {
@@ -476,7 +475,7 @@ document.getElementById("sendTelegramBtn").addEventListener("click", async funct
 	const message = document.getElementById("message").value.trim();
 
 	if (!name || !email || !phone || !message) {
-		alert("Please provide valid input.");
+		console.log("Please provide valid input.");
 		return;
 	}
 
@@ -502,14 +501,14 @@ document.getElementById("sendTelegramBtn").addEventListener("click", async funct
 			} catch (error) {
 				console.error("An error occurred while accessing web storage:", error);
 			}
-			alert("Message sent successfully!");
+			console.log("Message sent successfully!");
 			document.getElementById("myForm").reset();
 		} else {
-			alert("Failed to send message. Please try again.");
+			console.log("Failed to send message. Please try again.");
 		}
 	} catch (error) {
 		console.error("Error:", error);
-		alert("A network error occurred.");
+		console.log("A network error occurred.");
 	} finally {
 		submitBtn.disabled = false;
 		submitBtn.textContent = originalBtnText;
@@ -565,7 +564,7 @@ document.getElementById("sendEmailBtn").addEventListener("click", function (even
 	const body = message + "\n\n" + name + "\n" + phone;
 	const mailtoLink = "mailto:anggunnantunggaputra@gmail.com" + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 	if (!name || !email || !phone || !message || name.length === 0 || email.length === 0 || phone.length === 0 || message.length === 0) {
-		alert("Please provide valid input.");
+		console.log("Please provide valid input.");
 		return;
 	} else {
 		window.location.href = mailtoLink;
