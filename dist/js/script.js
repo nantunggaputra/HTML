@@ -427,8 +427,97 @@ document.getElementById("phone").addEventListener("input", function () {
 	this.value = this.value.replace(/[^0-9]/g, "");
 });
 
-// submit_mailto:
-document.getElementById("myForm").addEventListener("submit", function (event) {
+// submit_telegram
+document.getElementById("sendTelegramBtn").addEventListener("click", async function (event) {
+	event.preventDefault(); // stop form submit default
+
+	let storageAvailable = true;
+	let storage = null;
+	try {
+		if (typeof Storage !== "undefined") {
+			storage = localStorage;
+		} else if (typeof sessionStorage !== "undefined") {
+			storage = sessionStorage;
+		} else {
+			storageAvailable = false;
+		}
+	} catch (error) {
+		console.error("An error occurred while accessing web storage:", error);
+		storageAvailable = false;
+	}
+	if (!storageAvailable) {
+		console.log("Web storage is not supported.");
+		return;
+	}
+
+	try {
+		let lastEmailSent = parseInt(storage.getItem("lastEmailSent"));
+		let currentTime = Date.now();
+		if (lastEmailSent) {
+			let timeDiff = currentTime - lastEmailSent;
+			let hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60));
+			if (hoursDiff >= 24) {
+				storage.setItem("emailCount", "0");
+			}
+		}
+		let emailCount = parseInt(storage.getItem("emailCount")) || 0;
+		if (emailCount >= 6) {
+			console.log("You have exceeded the send request limit.");
+			alert("You have exceeded the maximum message send limit today.");
+			return;
+		}
+	} catch (error) {
+		console.error("An error occurred while accessing web storage:", error);
+	}
+
+	const name = document.getElementById("name").value.trim();
+	const email = document.getElementById("email").value.trim();
+	const phone = document.getElementById("phone").value.trim();
+	const message = document.getElementById("message").value.trim();
+
+	if (!name || !email || !phone || !message) {
+		alert("Please provide valid input.");
+		return;
+	}
+
+	const submitBtn = event.target;
+	const originalBtnText = submitBtn.textContent;
+	submitBtn.disabled = true;
+	submitBtn.textContent = "Mengirim...";
+
+	const apiUrl = "https://nantunggaputra.netlify.app/.netlify/functions/send-telegram";
+
+	try {
+		const response = await fetch(apiUrl, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ name, email, phone, message }),
+		});
+		const result = await response.json();
+
+		if (response.ok && result.success) {
+			try {
+				storage.setItem("emailCount", (parseInt(storage.getItem("emailCount")) || 0) + 1);
+				storage.setItem("lastEmailSent", Date.now().toString());
+			} catch (error) {
+				console.error("An error occurred while accessing web storage:", error);
+			}
+			alert("Message sent successfully!");
+			document.getElementById("myForm").reset();
+		} else {
+			alert("Failed to send message. Please try again.");
+		}
+	} catch (error) {
+		console.error("Error:", error);
+		alert("A network error occurred.");
+	} finally {
+		submitBtn.disabled = false;
+		submitBtn.textContent = originalBtnText;
+	}
+});
+
+// submit_mailto
+document.getElementById("sendEmailBtn").addEventListener("click", function (event) {
 	event.preventDefault();
 	let storageAvailable = true;
 	let storage = null;
@@ -459,7 +548,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 			}
 		}
 		let emailCount = parseInt(storage.getItem("emailCount")) || 0;
-		if (emailCount >= 3) {
+		if (emailCount >= 6) {
 			console.log("You have exceeded the send request limit.");
 			return;
 		}
