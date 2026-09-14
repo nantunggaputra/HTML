@@ -126,6 +126,7 @@
 		form_handphone: "Telepon",
 		form_message: "Pesan",
 		form_send: "Kirim",
+		form_send_email: "Kirim ke E-mail",
 		section_hit_label: "Kunjungan",
 		section_hit_desc: "Itulah jumlah kunjungan ke portofolioku. Terima kasih telah mengunjungi website ini. Semoga informasi yang tersedia memberikan wawasan yang bermanfaat.",
 		footer_contact_title: "Hubungi Aku",
