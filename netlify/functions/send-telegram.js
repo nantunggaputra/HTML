@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const allowedOrigins = [
     "https://nantunggaputra.github.io",
-    "https://nantunggaputra-frontend-we-git-bfaa99-nantungga-putras-projects.vercel.app",
+    "https://nantunggaputra-frontend-web.vercel.app",
     "https://nantunggaputra.netlify.app",
   ];
 
