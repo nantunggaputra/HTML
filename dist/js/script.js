@@ -427,6 +427,16 @@ document.getElementById("phone").addEventListener("input", function () {
 	this.value = this.value.replace(/[^0-9]/g, "");
 });
 
+// input_validity
+function validateFormInputs() {
+	const form = document.getElementById("myForm");
+	if (!form.checkValidity()) {
+		form.reportValidity();
+		return false;
+	}
+	return true;
+}
+
 // submit_telegram
 document.getElementById("sendTelegramBtn").addEventListener("click", async function (event) {
 	event.preventDefault(); // stop form submit default
@@ -467,6 +477,10 @@ document.getElementById("sendTelegramBtn").addEventListener("click", async funct
 		}
 	} catch (error) {
 		console.error("An error occurred while accessing web storage:", error);
+	}
+
+	if (!validateFormInputs()) {
+	    return;
 	}
 
 	const name = document.getElementById("name").value.trim();
@@ -555,6 +569,9 @@ document.getElementById("sendEmailBtn").addEventListener("click", function (even
 		storage.setItem("lastEmailSent", currentTime.toString());
 	} catch (error) {
 		console.error("An error occurred while accessing web storage:", error);
+	}
+	if (!validateFormInputs()) {
+	    return;
 	}
 	const name = document.getElementById("name").value.trim();
 	const email = document.getElementById("email").value.trim();
