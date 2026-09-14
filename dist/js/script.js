@@ -496,7 +496,7 @@ document.getElementById("sendTelegramBtn").addEventListener("click", async funct
 	const submitBtn = event.target;
 	const originalBtnText = submitBtn.textContent;
 	submitBtn.disabled = true;
-	submitBtn.textContent = "Mengirim...";
+	submitBtn.textContent = "⟳";
 
 	const apiUrl = "https://nantunggaputra.netlify.app/.netlify/functions/send-telegram";
 
